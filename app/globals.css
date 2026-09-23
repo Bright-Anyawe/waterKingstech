@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------- */
+/*  Design tokens                                                             */
+/* -------------------------------------------------------------------------- */
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* Neutrals — "ink" for dark surfaces, "mist"/"line" for light ones */
+  --color-ink-950: #07090c;
+  --color-ink-900: #0c1015;
+  --color-ink-850: #10151b;
+  --color-ink-800: #151b22;
+  --color-ink-700: #202833;
+  --color-ink-600: #2e3845;
+  --color-ink-500: #4a5563;
+  --color-ink-400: #6b7685;
+  --color-ink-300: #9aa4b1;
+  --color-ink-200: #c7cdd5;
+  --color-mist: #f4f5f7;
+  --color-line: #e3e6ea;
+
+  /* Brand accent — "tide" (water) */
+  --color-tide-200: #b9f1fb;
+  --color-tide-300: #7fe3f5;
+  --color-tide-400: #3dd1ec;
+  --color-tide-500: #12b5d6;
+  --color-tide-600: #0892b0;
+  --color-tide-700: #0b7390;
+  --color-tide-800: #0f5d74;
+
+  /* WhatsApp */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #3be07a;
+  --color-whatsapp-ink: #04170b;
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-rise: rise 0.8s var(--ease-premium) both;
+  --animate-fade: fade 0.9s var(--ease-premium) both;
+  --animate-line: line-reveal 0.9s var(--ease-premium) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes line-reveal {
+    from {
+      transform: translateY(105%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Base                                                                      */
+/* -------------------------------------------------------------------------- */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-ink-950);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-tide-300);
+    color: var(--color-ink-950);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-tide-400);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Utilities                                                                 */
+/* -------------------------------------------------------------------------- */
+
+@utility container-x {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Fine grid used on dark sections — deliberately faint */
+@utility bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Staggered hero entrance — pure CSS so content paints without waiting for JS */
+@utility hero-in {
+  animation: var(--animate-rise);
+  animation-delay: calc(var(--i, 0) * 90ms + 60ms);
+}
+
+@utility hero-line {
+  display: block;
+  animation: var(--animate-line);
+  animation-delay: calc(var(--i, 0) * 110ms);
+}
+
+@utility hero-fade {
+  animation: var(--animate-fade);
+  animation-delay: calc(var(--i, 0) * 120ms + 150ms);
+}
+
+/* Room for the fixed mobile action bar */
+@utility pb-action-bar {
+  padding-bottom: calc(4.75rem + env(safe-area-inset-bottom));
+
+  @media (width >= 48rem) {
+    padding-bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

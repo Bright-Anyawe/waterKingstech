@@ -1,0 +1,330 @@
+import { unsplash } from "@/lib/images";
+import type { Product } from "@/types";
+
+/**
+ * Product catalog.
+ *
+ * ⚠️  SAMPLE INVENTORY — replace with WaterKingsTech's real stock before launch.
+ *     - `price: null` shows "Price on request". Add the price in cedis (e.g. 12500)
+ *       once confirmed.
+ *     - Images are representative royalty-free photos (Unsplash). Swap in real
+ *       product photos by dropping files in /public/images/products and using
+ *       e.g. `src: "/images/products/iphone-15-pro.jpg"`.
+ *
+ * To add a product: copy an entry, give it a unique `id`, and set its
+ * `category` + `subcategory` (see data/categories.ts). The catalog, filters,
+ * counts and WhatsApp messages update automatically.
+ */
+export const products: Product[] = [
+  /* ------------------------------- Smartphones ------------------------------ */
+  {
+    id: "iphone-17-pro-max-256",
+    name: "iPhone 17 Pro Max",
+    variant: "256GB",
+    category: "smartphones",
+    subcategory: "iphone",
+    condition: "Brand new",
+    specs: ["6.9″ Super Retina XDR", "A19 Pro chip", "48MP Pro camera system"],
+    price: null,
+    availability: "on-request",
+    image: {
+      src: unsplash("1764746250417-2cc103a45a56"),
+      alt: "Orange iPhone 17 Pro-series phone resting on a dark blue surface",
+    },
+    featured: true,
+    highlight: "Apple's largest Pro iPhone, with the 6.9″ display.",
+  },
+  {
+    id: "iphone-16-pro-256",
+    name: "iPhone 16 Pro",
+    variant: "256GB",
+    category: "smartphones",
+    subcategory: "iphone",
+    condition: "Excellent condition",
+    specs: ["6.3″ Super Retina XDR", "A18 Pro chip", "Desert Titanium"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1726587912121-ea21fcc57ff8"),
+      alt: "Front and back of a Desert Titanium iPhone 16 Pro on a grey background",
+    },
+  },
+  {
+    id: "iphone-15-pro-256",
+    name: "iPhone 15 Pro",
+    variant: "256GB",
+    category: "smartphones",
+    subcategory: "iphone",
+    condition: "Excellent condition",
+    specs: ["6.1″ Super Retina XDR", "A17 Pro chip", "USB‑C"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1695973056905-73ac6275b2f7"),
+      alt: "Front and back of a titanium iPhone 15 Pro on a white background",
+    },
+  },
+  {
+    id: "galaxy-s24-ultra-512",
+    name: "Samsung Galaxy S24 Ultra",
+    variant: "512GB",
+    category: "smartphones",
+    subcategory: "samsung",
+    condition: "Excellent condition",
+    specs: ["6.8″ QHD+ AMOLED", "200MP camera", "Built-in S Pen"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1709744722656-9b850470293f"),
+      alt: "Samsung Galaxy S24 Ultra camera array beside a keyboard",
+    },
+    featured: true,
+    highlight: "200MP camera, built-in S Pen and a big 6.8″ display.",
+  },
+  {
+    id: "galaxy-s23-ultra-256",
+    name: "Samsung Galaxy S23 Ultra",
+    variant: "256GB",
+    category: "smartphones",
+    subcategory: "samsung",
+    condition: "Very good condition",
+    specs: ["6.8″ QHD+ AMOLED", "200MP camera", "S Pen included"],
+    price: null,
+    availability: "limited-stock",
+    image: {
+      src: unsplash("1678911820864-e2c567c655d7"),
+      alt: "Black Samsung Galaxy S23 Ultra with S Pen on a dark background",
+    },
+  },
+  {
+    id: "galaxy-a55-256",
+    name: "Samsung Galaxy A55 5G",
+    variant: "256GB",
+    category: "smartphones",
+    subcategory: "samsung",
+    condition: "Brand new",
+    specs: ["6.6″ Super AMOLED", "50MP OIS camera", "5000mAh battery"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1772182137994-4158ac33bddd"),
+      alt: "Two Samsung Galaxy smartphones shown front and back on a wooden surface",
+    },
+  },
+  {
+    id: "pixel-9-pro-128",
+    name: "Google Pixel 9 Pro",
+    variant: "128GB",
+    category: "smartphones",
+    subcategory: "other-phones",
+    condition: "Excellent condition",
+    specs: ["6.3″ Super Actua display", "Google Tensor G4", "50MP triple camera"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1724322535079-11b08f7f5c88"),
+      alt: "Hand holding a Google Pixel 9 Pro showing its camera bar",
+    },
+  },
+
+  /* --------------------------------- Laptops -------------------------------- */
+  {
+    id: "macbook-pro-14-m3-512",
+    name: "MacBook Pro 14″ M3",
+    variant: "512GB SSD",
+    category: "laptops",
+    subcategory: "macbook",
+    condition: "Excellent condition",
+    specs: ["Apple M3 chip", "16GB unified memory", "Liquid Retina XDR"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1611078489935-0cb964de46d6"),
+      alt: "MacBook Pro open on a black table",
+    },
+    featured: true,
+    highlight: "Pro performance and an XDR display for serious work.",
+  },
+  {
+    id: "macbook-air-13-m2-256",
+    name: "MacBook Air 13″ M2",
+    variant: "256GB SSD",
+    category: "laptops",
+    subcategory: "macbook",
+    condition: "Excellent condition",
+    specs: ["Apple M2 chip", "8GB unified memory", "13.6″ Liquid Retina"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1660945742817-217842d82b55"),
+      alt: "Midnight MacBook Air open on a white surface",
+    },
+  },
+  {
+    id: "dell-xps-13-512",
+    name: "Dell XPS 13",
+    variant: "512GB SSD",
+    category: "laptops",
+    subcategory: "windows",
+    condition: "Excellent condition",
+    specs: ["Intel Core i7", "16GB RAM", "13.4″ FHD+ display"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1593642632823-8f785ba67e45"),
+      alt: "Dell XPS laptop with a colourful wallpaper on a marble surface",
+    },
+  },
+  {
+    id: "hp-elitebook-840-256",
+    name: "HP EliteBook 840",
+    variant: "256GB SSD",
+    category: "laptops",
+    subcategory: "windows",
+    condition: "UK used",
+    specs: ["Intel Core i5", "16GB RAM", "14″ Full HD"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1618412687308-52a053fc4e72"),
+      alt: "Silver business laptop showing the Windows lock screen",
+    },
+  },
+  {
+    id: "thinkpad-t14-512",
+    name: "Lenovo ThinkPad T14",
+    variant: "512GB SSD",
+    category: "laptops",
+    subcategory: "windows",
+    condition: "UK used",
+    specs: ["Intel Core i7", "16GB RAM", "14″ Full HD"],
+    price: null,
+    availability: "limited-stock",
+    image: {
+      src: unsplash("1743456056142-1aaf69656dfa"),
+      alt: "Lenovo ThinkPad laptop displaying a sunset wallpaper",
+    },
+  },
+
+  /* ------------------------------- Accessories ------------------------------ */
+  {
+    id: "samsung-t7-1tb",
+    name: "Samsung T7 Portable SSD",
+    variant: "1TB",
+    category: "accessories",
+    subcategory: "ssd",
+    condition: "Brand new",
+    specs: ["USB 3.2 Gen 2", "Up to 1,050MB/s", "Pocket-sized"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1721333084639-0f64b0583875"),
+      alt: "Blue and black Samsung T7 portable SSDs on a wooden table",
+    },
+  },
+  {
+    id: "nvme-ssd-512",
+    name: "NVMe M.2 SSD",
+    variant: "512GB",
+    category: "accessories",
+    subcategory: "ssd",
+    condition: "Brand new",
+    specs: ["PCIe NVMe", "For laptop & desktop upgrades"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1720048170996-40507a45c720"),
+      alt: "M.2 NVMe solid-state drive resting on a laptop keyboard",
+    },
+  },
+  {
+    id: "sandisk-flash-64",
+    name: "SanDisk USB 3.0 Flash Drive",
+    variant: "64GB",
+    category: "accessories",
+    subcategory: "pen-drives",
+    condition: "Brand new",
+    specs: ["USB 3.0", "Compact design"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1551818014-7c8ace9c1b5c"),
+      alt: "Black USB flash drive on a white background",
+    },
+  },
+  {
+    id: "monitor-24-fhd",
+    name: "24″ Full HD Monitor",
+    variant: "IPS",
+    category: "accessories",
+    subcategory: "screens",
+    condition: "Brand new",
+    specs: ["1920 × 1080", "HDMI input", "Slim bezels"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1611648694931-1aeda329f9da"),
+      alt: "Flat-screen computer monitor on a desk with keyboard",
+    },
+  },
+  {
+    id: "airpods-pro-2",
+    name: "Apple AirPods Pro (2nd gen)",
+    variant: "USB‑C",
+    category: "accessories",
+    subcategory: "earbuds",
+    condition: "Brand new",
+    specs: ["Active Noise Cancellation", "MagSafe charging case"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1572569511254-d8f925fe2cbb"),
+      alt: "Apple AirPods Pro with open charging case",
+    },
+  },
+  {
+    id: "wireless-earbuds",
+    name: "Wireless Bluetooth Earbuds",
+    category: "accessories",
+    subcategory: "earbuds",
+    condition: "Brand new",
+    specs: ["Bluetooth", "Charging case", "Touch controls"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1606220588913-b3aacb4d2f46"),
+      alt: "Black wireless earbuds beside their charging case",
+    },
+  },
+  {
+    id: "usb-c-charger-65w",
+    name: "65W USB‑C Fast Charger",
+    category: "accessories",
+    subcategory: "chargers",
+    condition: "Brand new",
+    specs: ["USB‑C Power Delivery", "Charges phones & laptops"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1725304382197-663ae3864750"),
+      alt: "65W USB-C wall charger with cable",
+    },
+  },
+  {
+    id: "power-bank-20000",
+    name: "Power Bank",
+    variant: "20,000mAh",
+    category: "accessories",
+    subcategory: "other-accessories",
+    condition: "Brand new",
+    specs: ["Fast charging", "Dual output"],
+    price: null,
+    availability: "in-stock",
+    image: {
+      src: unsplash("1613070541337-b40942ee6527"),
+      alt: "Black power bank on a wooden table",
+    },
+  },
+];
+
+export const featuredProducts = products.filter((p) => p.featured);

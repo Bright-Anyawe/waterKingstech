@@ -1,4 +1,4 @@
-import type { SocialLink } from "@/types";
+import type { SocialLink, WhatsAppNumber } from "@/types";
 
 /**
  * Contact details (from WaterKingsTech's flyers: "Call or WhatsApp").
@@ -9,10 +9,15 @@ export const contact = {
   /** How the number is displayed */
   phoneDisplay: "054 260 9094" as string | null,
 
-  /** Digits only, international format without "+" — used for wa.me links */
-  whatsapp: "233206651139" as string | null,
-  /** How the WhatsApp number is displayed */
-  whatsappDisplay: "020 665 1139" as string | null,
+  /**
+   * Both numbers take WhatsApp. The FIRST one is used by every WhatsApp button
+   * on the site (Buy on WhatsApp, WhatsApp Us…); both are listed in the
+   * Location and Contact areas. Reorder to change the main number.
+   */
+  whatsapp: [
+    { number: "233542609094", display: "054 260 9094" },
+    { number: "233206651139", display: "020 665 1139" },
+  ] as WhatsAppNumber[],
 
   email: null as string | null,
 

@@ -6,7 +6,7 @@ import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { business } from "@/data/business";
 import { contact } from "@/data/contact";
 import { cn } from "@/lib/cn";
-import { callHref, directionsHref, whatsappHref } from "@/lib/contact-links";
+import { callHref, directionsHref, whatsappHref, whatsappMessages, whatsappNumbersDisplay } from "@/lib/contact-links";
 
 export function ContactCTA() {
   return (
@@ -41,7 +41,7 @@ export function ContactCTA() {
               href={whatsappHref()}
               icon={<WhatsAppIcon className="size-6" />}
               title="WhatsApp Us"
-              detail={contact.whatsappDisplay ?? "Fastest way to reach us"}
+              detail={whatsappNumbersDisplay || "Fastest way to reach us"}
               highlight
             />
           </RevealItem>
@@ -62,6 +62,24 @@ export function ContactCTA() {
             />
           </RevealItem>
         </RevealGroup>
+
+        {contact.whatsapp.length > 1 ? (
+          <p className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-ink-300">
+            <span>WhatsApp either number:</span>
+            {contact.whatsapp.map((w) => (
+              <a
+                key={w.number}
+                href={whatsappHref(whatsappMessages.general, w.number)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 font-medium text-white transition-colors hover:border-whatsapp/50 hover:text-whatsapp"
+              >
+                <WhatsAppIcon className="size-3.5" />
+                {w.display}
+              </a>
+            ))}
+          </p>
+        ) : null}
       </div>
     </section>
   );

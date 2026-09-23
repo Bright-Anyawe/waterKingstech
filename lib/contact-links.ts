@@ -35,13 +35,20 @@ export function repairMessage(service: RepairService): string {
 }
 
 /**
- * wa.me link with a prepared message. Until the business number is supplied,
- * WhatsApp opens with the message ready and lets the visitor choose a chat.
+ * wa.me link with a prepared message, to the main WhatsApp number unless another
+ * is given. With no number configured, WhatsApp opens with the message ready and
+ * lets the visitor choose a chat.
  */
-export function whatsappHref(message: string = whatsappMessages.general): string {
+export function whatsappHref(
+  message: string = whatsappMessages.general,
+  number: string | undefined = contact.whatsapp[0]?.number,
+): string {
   const text = encodeURIComponent(message);
-  return contact.whatsapp ? `https://wa.me/${contact.whatsapp}?text=${text}` : `https://wa.me/?text=${text}`;
+  return number ? `https://wa.me/${number}?text=${text}` : `https://wa.me/?text=${text}`;
 }
+
+/** e.g. "054 260 9094 / 020 665 1139" */
+export const whatsappNumbersDisplay = contact.whatsapp.map((w) => w.display).join(" / ");
 
 /* -------------------------------------------------------------------------- */
 /*  Phone & directions                                                        */

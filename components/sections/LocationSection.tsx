@@ -52,15 +52,22 @@ export function LocationSection() {
               </DetailRow>
 
               <DetailRow icon={<WhatsAppIcon className="size-5" />} label="WhatsApp">
-                {contact.whatsappDisplay ? (
-                  <a
-                    href={whatsappHref()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-ink-950 hover:text-tide-700"
-                  >
-                    {contact.whatsappDisplay}
-                  </a>
+                {contact.whatsapp.length > 0 ? (
+                  <span className="flex flex-wrap gap-x-3 gap-y-1">
+                    {contact.whatsapp.map((w, index) => (
+                      <span key={w.number} className="flex items-center gap-3">
+                        {index > 0 ? <span aria-hidden="true" className="text-ink-300">/</span> : null}
+                        <a
+                          href={whatsappHref(whatsappMessages.general, w.number)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-medium text-ink-950 underline-offset-4 hover:text-tide-700 hover:underline"
+                        >
+                          {w.display}
+                        </a>
+                      </span>
+                    ))}
+                  </span>
                 ) : (
                   <Pending>WhatsApp number to be supplied</Pending>
                 )}

@@ -109,6 +109,13 @@ export type OpeningHours = {
   hours: string;
 };
 
+export type WhatsAppNumber = {
+  /** Digits only, international format without "+", e.g. "233542609094" */
+  number: string;
+  /** How the number is displayed, e.g. "054 260 9094" */
+  display: string;
+};
+
 export type SocialLink = {
   label: string;
   href: string;

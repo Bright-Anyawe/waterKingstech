@@ -1,29 +1,37 @@
 import { ArrowRight, MapPin, Phone } from "lucide-react";
-import { HeroVisual } from "@/components/sections/HeroVisual";
+import { preload } from "react-dom";
+import { HeroVideo } from "@/components/sections/HeroVideo";
 import { ButtonLink } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { business } from "@/data/business";
+import { heroMedia } from "@/data/hero";
 import { callHref, directionsHref, whatsappHref } from "@/lib/contact-links";
 
 const offer = ["Phones", "Laptops", "Accessories", "Repairs"];
 
 export function Hero() {
+  // The poster is the first thing painted behind the headline — fetch it early.
+  preload(heroMedia.poster, { as: "image", fetchPriority: "high" });
+
   return (
     <section
       id="home"
       aria-labelledby="hero-title"
-      className="relative isolate overflow-hidden bg-ink-950 pt-28 pb-14 text-white sm:pt-32 lg:pt-40 lg:pb-24"
+      className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink-950 pt-28 pb-24 text-white md:pb-16 lg:min-h-[max(40rem,88svh)] lg:justify-center lg:pt-32 lg:pb-20"
     >
-      {/* Atmosphere: soft tide glow + faint grid fading out */}
+      <HeroVideo />
+
+      {/* Overlays keep the text legible over the moving footage */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-40 right-[-10%] h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(closest-side,rgb(18_181_214/0.22),transparent)] blur-2xl" />
-        <div className="absolute bottom-[-30%] left-[-15%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(closest-side,rgb(61_209_236/0.08),transparent)] blur-2xl" />
-        <div className="absolute inset-0 bg-grid-dark [mask-image:radial-gradient(70%_60%_at_60%_30%,black,transparent)]" />
+        <div className="absolute inset-0 bg-ink-950/25" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-linear-to-b from-ink-950/80 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[72%] bg-linear-to-t from-ink-950 via-ink-950/85 to-transparent lg:h-2/5 lg:via-ink-950/40" />
+        <div className="absolute inset-y-0 left-0 hidden w-[72%] bg-linear-to-r from-ink-950/90 via-ink-950/55 to-transparent lg:block" />
       </div>
 
-      <div className="container-x grid items-center gap-14 lg:grid-cols-[1.02fr_1fr] lg:gap-10 xl:gap-16">
+      <div className="container-x">
         <div className="max-w-2xl">
-          <p className="hero-in inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] py-1.5 pr-4 pl-2 text-[0.8rem] text-ink-200 backdrop-blur [--i:0]">
+          <p className="hero-in inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-ink-950/40 py-1.5 pr-4 pl-2 text-[0.8rem] text-ink-200 backdrop-blur-md [--i:0]">
             <span className="relative flex size-5 items-center justify-center rounded-full bg-tide-400/15">
               <span className="size-1.5 rounded-full bg-tide-400" />
             </span>
@@ -51,7 +59,7 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="hero-in mt-6 max-w-xl text-pretty text-base leading-relaxed text-ink-300 sm:text-lg [--i:3]">
+          <p className="hero-in mt-6 max-w-xl text-pretty text-base leading-relaxed text-ink-200 sm:text-lg [--i:3]">
             Shop quality smartphones, laptops and accessories, or get professional device repairs from{" "}
             {business.name} — your one-stop tech destination in {business.location.city}.
           </p>
@@ -80,8 +88,6 @@ export function Hero() {
             </ButtonLink>
           </div>
         </div>
-
-        <HeroVisual />
       </div>
     </section>
   );

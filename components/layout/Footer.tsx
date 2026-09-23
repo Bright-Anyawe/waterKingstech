@@ -89,10 +89,19 @@ export function Footer() {
                   <Pending tone="dark">Phone number to be added</Pending>
                 )}
               </li>
-              <li>
-                <a href={whatsappHref(whatsappMessages.general)} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                  WhatsApp{contact.whatsappDisplay ? ` · ${contact.whatsappDisplay}` : ""}
-                </a>
+              <li className="text-sm text-ink-300">
+                <span className="block text-ink-400">WhatsApp</span>
+                {contact.whatsapp.map((w) => (
+                  <a
+                    key={w.number}
+                    href={whatsappHref(whatsappMessages.general, w.number)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${linkClass} block`}
+                  >
+                    {w.display}
+                  </a>
+                ))}
               </li>
               <li className="text-sm text-ink-300">
                 <span className="block text-ink-400">Opening hours</span>

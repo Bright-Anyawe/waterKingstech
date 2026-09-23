@@ -26,7 +26,8 @@ All content lives in `/data`, so you rarely need to touch the components.
 
 | File | What it controls |
 | --- | --- |
-| `data/contact.ts` | Phone, WhatsApp number, email, social links |
+| `data/contact.ts` | Phone, WhatsApp numbers (the first is used by all WhatsApp buttons), email, social links |
+| `data/hero.ts` | Hero background video and its poster frame (files in `public/videos`) |
 | `data/business.ts` | Address, map, opening hours, shop photos, description |
 | `data/products.ts` | Product catalog (name, variant, specs, price, stock, image, featured) |
 | `data/categories.ts` | Catalog categories and sub-categories |

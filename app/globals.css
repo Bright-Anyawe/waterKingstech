@@ -1,72 +1,74 @@
 @import "tailwindcss";
 
+/* Design notes and review captures are not site source */
+@source not "../.impeccable";
+
 /* -------------------------------------------------------------------------- */
-/*  Design tokens                                                             */
+/*  Design tokens — "Tidewater": blues sampled from the WaterKingsTech logo    */
 /* -------------------------------------------------------------------------- */
 
 @theme {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-montserrat), var(--font-geist-sans), ui-sans-serif, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
 
-  /* Neutrals — "ink" for dark surfaces, "mist"/"line" for light ones */
-  --color-ink-950: #07090c;
-  --color-ink-900: #0c1015;
-  --color-ink-850: #10151b;
-  --color-ink-800: #151b22;
-  --color-ink-700: #202833;
-  --color-ink-600: #2e3845;
-  --color-ink-500: #4a5563;
-  --color-ink-400: #6b7685;
-  --color-ink-300: #9aa4b1;
-  --color-ink-200: #c7cdd5;
-  --color-mist: #f4f5f7;
-  --color-line: #e3e6ea;
+  /* Brand blues (logo: #0c6de2 laptop base, #108bd5 wordmark, #25c3f4 rules) */
+  --color-royal-50: #eef6ff;
+  --color-royal-100: #dcecff;
+  --color-royal-200: #b9d8fb;
+  --color-royal-300: #84bdf5;
+  --color-royal-500: #108bd5;
+  --color-royal-600: #0c6de2;
+  --color-royal-700: #0a58bb;
+  --color-royal-800: #0b468f;
+  --color-navy: #062a5c;
+  --color-navy-950: #031a3d;
+  --color-cyan: #25c3f4;
+  --color-cyan-200: #a0e5f9;
 
-  /* Brand accent — "tide" (water) */
-  --color-tide-200: #b9f1fb;
-  --color-tide-300: #7fe3f5;
-  --color-tide-400: #3dd1ec;
-  --color-tide-500: #12b5d6;
-  --color-tide-600: #0892b0;
-  --color-tide-700: #0b7390;
-  --color-tide-800: #0f5d74;
+  /* Ground, lines and text — all tinted toward the brand blue */
+  --color-ice: #eef4fa;
+  --color-ice-100: #f6f9fd;
+  --color-ice-200: #d9e5f1;
+  --color-ice-300: #c3d4e6;
+  --color-ink: #0f1b2d;
+  --color-ink-soft: #3d4d63;
+  --color-ink-muted: #5a687d;
+
+  /* Counter-accent and deal tags */
+  --color-orange: #ff8a1f;
+  --color-orange-strong: #f57800;
+  --color-save: #d7263d;
+  --color-flash: #6d28d9;
+  --color-gift: #0f7a3d;
+  --color-gift-bg: #e5f6eb;
 
   /* WhatsApp */
   --color-whatsapp: #25d366;
-  --color-whatsapp-hover: #3be07a;
+  --color-whatsapp-hover: #1fc15c;
   --color-whatsapp-ink: #04170b;
 
-  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
-  --animate-rise: rise 0.8s var(--ease-premium) both;
-  --animate-fade: fade 0.9s var(--ease-premium) both;
-  --animate-line: line-reveal 0.9s var(--ease-premium) both;
+  --animate-ticker: ticker 48s linear infinite;
+  --animate-rise: rise 0.7s var(--ease-out-expo) both;
+
+  @keyframes ticker {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 
   @keyframes rise {
     from {
       opacity: 0;
-      transform: translateY(18px);
+      transform: translateY(14px);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fade {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes line-reveal {
-    from {
-      transform: translateY(105%);
-    }
-    to {
       transform: translateY(0);
     }
   }
@@ -79,26 +81,38 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 7rem;
     -webkit-tap-highlight-color: transparent;
+    scrollbar-color: var(--color-royal-300) var(--color-ice);
   }
 
   body {
-    background-color: #ffffff;
-    color: var(--color-ink-950);
+    background-color: var(--color-ice);
+    color: var(--color-ink);
     font-family: var(--font-sans);
     text-rendering: optimizeLegibility;
+    caret-color: var(--color-royal-600);
   }
 
   ::selection {
-    background: var(--color-tide-300);
-    color: var(--color-ink-950);
+    background: var(--color-cyan-200);
+    color: var(--color-navy);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-tide-400);
-    outline-offset: 3px;
+    outline: 2px solid var(--color-royal-600);
+    outline-offset: 2px;
     border-radius: 6px;
+  }
+
+  a {
+    text-underline-offset: 3px;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-ink-muted);
+    opacity: 1;
   }
 }
 
@@ -108,46 +122,32 @@
 
 @utility container-x {
   width: 100%;
-  max-width: 80rem;
+  max-width: 77rem;
   margin-inline: auto;
   padding-inline: 1rem;
 
   @media (width >= 40rem) {
     padding-inline: 1.5rem;
   }
-  @media (width >= 64rem) {
-    padding-inline: 2rem;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
-/* Fine grid used on dark sections — deliberately faint */
-@utility bg-grid-dark {
-  background-image:
-    linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
-/* Staggered hero entrance — pure CSS so content paints without waiting for JS */
-@utility hero-in {
+/* Staggered entrance for the search band — pure CSS so it paints without JS */
+@utility rise-in {
   animation: var(--animate-rise);
-  animation-delay: calc(var(--i, 0) * 90ms + 60ms);
-}
-
-@utility hero-line {
-  display: block;
-  animation: var(--animate-line);
-  animation-delay: calc(var(--i, 0) * 110ms);
-}
-
-@utility hero-fade {
-  animation: var(--animate-fade);
-  animation-delay: calc(var(--i, 0) * 120ms + 150ms);
+  animation-delay: calc(var(--i, 0) * 70ms);
 }
 
 /* Room for the fixed mobile action bar */
 @utility pb-action-bar {
-  padding-bottom: calc(4.75rem + env(safe-area-inset-bottom));
+  padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
 
   @media (width >= 48rem) {
     padding-bottom: 0;

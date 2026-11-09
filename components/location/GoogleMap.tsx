@@ -8,13 +8,13 @@ function embedSrc(): string {
   return `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=17&output=embed`;
 }
 
-/** Embedded Google Map, lazy-loaded so it never slows down the first paint. */
+/** Live embedded Google Map, lazy-loaded so it never slows down the first paint. */
 export function GoogleMap({ className }: { className?: string }) {
   return (
     <div className={className}>
       <iframe
         src={embedSrc()}
-        title={`Map showing the location of ${business.name}`}
+        title={`Map showing the location of ${business.name} — ${business.location.landmark}`}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         allowFullScreen

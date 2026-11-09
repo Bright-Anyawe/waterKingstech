@@ -43,3 +43,7 @@ next-env.d.ts
 # local tooling & client deliverables
 /.claude/
 /deliverables/
+
+# design review captures (regenerated on demand)
+/.impeccable/review/
+/.impeccable/build/

@@ -1,25 +1,24 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Search } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { whatsappHref } from "@/lib/contact-links";
 
 export default function NotFound() {
   return (
-    <section className="flex min-h-[80dvh] items-center bg-ink-950 pt-24 pb-16 text-white">
-      <div className="container-x flex flex-col items-start">
-        <p className="font-mono text-sm text-tide-300">404</p>
-        <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em] sm:text-7xl">Page not found.</h1>
-        <p className="mt-5 max-w-md text-lg text-ink-300">
-          The page you&apos;re looking for doesn&apos;t exist. Head back to the shop or message us directly.
-        </p>
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href="/" variant="light" size="lg" icon={<ArrowLeft />}>
-            Back to home
-          </ButtonLink>
-          <ButtonLink href={whatsappHref()} variant="whatsapp" size="lg" icon={<WhatsAppIcon />}>
-            WhatsApp Us
-          </ButtonLink>
-        </div>
+    <section className="container-x flex min-h-[60dvh] flex-col items-center justify-center py-16 text-center">
+      <p className="font-display text-6xl font-extrabold text-royal-600">404</p>
+      <h1 className="mt-3 font-display text-2xl font-bold text-ink sm:text-3xl">We couldn&apos;t find that page.</h1>
+      <p className="mt-2 max-w-md text-ink-muted">It may have moved, or the item may have sold. Try the shop, or ask us directly.</p>
+      <div className="mt-7 flex flex-col gap-2 sm:flex-row">
+        <ButtonLink href="/" variant="primary" icon={<ArrowLeft />}>
+          Back to home
+        </ButtonLink>
+        <ButtonLink href="/shop" variant="outline" icon={<Search />}>
+          Browse the shop
+        </ButtonLink>
+        <ButtonLink href={whatsappHref()} variant="whatsapp" icon={<WhatsAppIcon />}>
+          WhatsApp us
+        </ButtonLink>
       </div>
     </section>
   );

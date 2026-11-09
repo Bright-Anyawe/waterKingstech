@@ -3,55 +3,56 @@ import type { ImageAsset, RepairService } from "@/types";
 
 /**
  * Repair & diagnostic services.
- * `turnaround` is only displayed when WaterKingsTech supplies it (e.g. "Same day").
+ * `turnaround`: the estimated time, e.g. "Same day" or "1–2 days". It shows a
+ * "to be confirmed" placeholder until WaterKingsTech supplies it.
  */
 export const repairServices: RepairService[] = [
   {
     id: "screen-replacement",
     name: "Screen replacement",
-    description: "Cracked, flickering or unresponsive display? Get the screen on your phone or laptop replaced.",
+    description: "Cracked, flickering or unresponsive display on your phone or laptop.",
     icon: "screen",
     turnaround: null,
   },
   {
-    id: "battery-replacement",
-    name: "Battery replacement",
-    description: "Battery draining too fast or not holding charge? Have a replacement battery fitted.",
+    id: "battery-swap",
+    name: "Battery swap",
+    description: "Battery draining fast, swelling or not holding charge.",
     icon: "battery",
     turnaround: null,
   },
   {
     id: "ssd-upgrade",
-    name: "SSD upgrades",
-    description: "Make a slow laptop feel new again, or add storage, with a solid-state drive upgrade.",
+    name: "SSD upgrade",
+    description: "Make a slow laptop fast again, or add more storage.",
     icon: "ssd",
     turnaround: null,
   },
   {
     id: "board-repair",
     name: "Board repair",
-    description: "Board-level fault finding and repair for phones and laptops with deeper hardware problems.",
+    description: "Board-level fault finding and repair for deeper hardware problems.",
     icon: "board",
     turnaround: null,
   },
   {
     id: "phone-diagnostics",
     name: "Phone diagnostics",
-    description: "Not sure what's wrong? Bring your phone in and get the fault properly identified.",
+    description: "Not sure what's wrong? Get the fault properly identified first.",
     icon: "phone-diagnostics",
     turnaround: null,
   },
   {
     id: "laptop-diagnostics",
     name: "Laptop diagnostics",
-    description: "Slow, overheating or not starting up? Find out what's causing it before you spend.",
+    description: "Slow, overheating or not starting? Find the cause before you spend.",
     icon: "laptop-diagnostics",
     turnaround: null,
   },
   {
     id: "quick-repairs",
     name: "Other quick repairs",
-    description: "Something else not working? Tell us about the problem and we'll let you know how we can help.",
+    description: "Something else not working? Tell us the problem and we'll say how we can help.",
     icon: "quick-repair",
     turnaround: null,
   },

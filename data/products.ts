@@ -4,17 +4,25 @@ import type { Product } from "@/types";
 /**
  * Product catalog.
  *
- * ⚠️  SAMPLE INVENTORY — replace with WaterKingsTech's real stock before launch.
- *     - `price: null` shows "Price on request". Add the price in cedis (e.g. 12500)
+ * ⚠️  SAMPLE INVENTORY — replace with WaterKingsTech's real stock before launch,
+ *     then set `catalogIsSample` to false to remove the "sample listings" notice.
+ *     - `price: null` shows "Ask for price". Add the price in cedis (e.g. 12500)
  *       once confirmed.
+ *     - `condition`: "uk-used" (tested import, shows the warranty badge) or
+ *       "brand-new" (factory sealed).
+ *     - `deal` adds a tag to the card: { type: "save", percent: 40 },
+ *       { type: "hot" } or { type: "flash" } (Weekend flash sale). The deals on
+ *       the sample products below are examples only.
  *     - Images are representative royalty-free photos (Unsplash). Swap in real
  *       product photos by dropping files in /public/images/products and using
  *       e.g. `src: "/images/products/iphone-15-pro.jpg"`.
  *
  * To add a product: copy an entry, give it a unique `id`, and set its
- * `category` + `subcategory` (see data/categories.ts). The catalog, filters,
- * counts and WhatsApp messages update automatically.
+ * `category` + `subcategory` (see data/categories.ts). Listings, filters,
+ * counts, product pages and WhatsApp messages update automatically.
  */
+export const catalogIsSample = true;
+
 export const products: Product[] = [
   /* ------------------------------- Smartphones ------------------------------ */
   {
@@ -23,7 +31,7 @@ export const products: Product[] = [
     variant: "256GB",
     category: "smartphones",
     subcategory: "iphone",
-    condition: "Brand new",
+    condition: "brand-new",
     specs: ["6.9″ Super Retina XDR", "A19 Pro chip", "48MP Pro camera system"],
     price: null,
     availability: "on-request",
@@ -31,6 +39,7 @@ export const products: Product[] = [
       src: unsplash("1764746250417-2cc103a45a56"),
       alt: "Orange iPhone 17 Pro-series phone resting on a dark blue surface",
     },
+    deal: { type: "hot" },
     featured: true,
     highlight: "Apple's largest Pro iPhone, with the 6.9″ display.",
   },
@@ -40,7 +49,8 @@ export const products: Product[] = [
     variant: "256GB",
     category: "smartphones",
     subcategory: "iphone",
-    condition: "Excellent condition",
+    condition: "uk-used",
+    grade: "Excellent",
     specs: ["6.3″ Super Retina XDR", "A18 Pro chip", "Desert Titanium"],
     price: null,
     availability: "in-stock",
@@ -55,7 +65,8 @@ export const products: Product[] = [
     variant: "256GB",
     category: "smartphones",
     subcategory: "iphone",
-    condition: "Excellent condition",
+    condition: "uk-used",
+    grade: "Excellent",
     specs: ["6.1″ Super Retina XDR", "A17 Pro chip", "USB‑C"],
     price: null,
     availability: "in-stock",
@@ -70,7 +81,8 @@ export const products: Product[] = [
     variant: "512GB",
     category: "smartphones",
     subcategory: "samsung",
-    condition: "Excellent condition",
+    condition: "uk-used",
+    grade: "Excellent",
     specs: ["6.8″ QHD+ AMOLED", "200MP camera", "Built-in S Pen"],
     price: null,
     availability: "in-stock",
@@ -78,6 +90,7 @@ export const products: Product[] = [
       src: unsplash("1709744722656-9b850470293f"),
       alt: "Samsung Galaxy S24 Ultra camera array beside a keyboard",
     },
+    deal: { type: "flash" },
     featured: true,
     highlight: "200MP camera, built-in S Pen and a big 6.8″ display.",
   },
@@ -87,7 +100,8 @@ export const products: Product[] = [
     variant: "256GB",
     category: "smartphones",
     subcategory: "samsung",
-    condition: "Very good condition",
+    condition: "uk-used",
+    grade: "Very good",
     specs: ["6.8″ QHD+ AMOLED", "200MP camera", "S Pen included"],
     price: null,
     availability: "limited-stock",
@@ -102,7 +116,7 @@ export const products: Product[] = [
     variant: "256GB",
     category: "smartphones",
     subcategory: "samsung",
-    condition: "Brand new",
+    condition: "brand-new",
     specs: ["6.6″ Super AMOLED", "50MP OIS camera", "5000mAh battery"],
     price: null,
     availability: "in-stock",
@@ -117,7 +131,8 @@ export const products: Product[] = [
     variant: "128GB",
     category: "smartphones",
     subcategory: "other-phones",
-    condition: "Excellent condition",
+    condition: "uk-used",
+    grade: "Excellent",
     specs: ["6.3″ Super Actua display", "Google Tensor G4", "50MP triple camera"],
     price: null,
     availability: "in-stock",
@@ -134,7 +149,8 @@ export const products: Product[] = [
     variant: "512GB SSD",
     category: "laptops",
     subcategory: "macbook",
-    condition: "Excellent condition",
+    condition: "uk-used",
+    grade: "Excellent",
     specs: ["Apple M3 chip", "16GB unified memory", "Liquid Retina XDR"],
     price: null,
     availability: "in-stock",
@@ -142,6 +158,7 @@ export const products: Product[] = [
       src: unsplash("1611078489935-0cb964de46d6"),
       alt: "MacBook Pro open on a black table",
     },
+    deal: { type: "hot" },
     featured: true,
     highlight: "Pro performance and an XDR display for serious work.",
   },
@@ -151,7 +168,8 @@ export const products: Product[] = [
     variant: "256GB SSD",
     category: "laptops",
     subcategory: "macbook",
-    condition: "Excellent condition",
+    condition: "uk-used",
+    grade: "Excellent",
     specs: ["Apple M2 chip", "8GB unified memory", "13.6″ Liquid Retina"],
     price: null,
     availability: "in-stock",
@@ -166,7 +184,7 @@ export const products: Product[] = [
     variant: "512GB SSD",
     category: "laptops",
     subcategory: "windows",
-    condition: "Excellent condition",
+    condition: "brand-new",
     specs: ["Intel Core i7", "16GB RAM", "13.4″ FHD+ display"],
     price: null,
     availability: "in-stock",
@@ -181,7 +199,8 @@ export const products: Product[] = [
     variant: "256GB SSD",
     category: "laptops",
     subcategory: "windows",
-    condition: "UK used",
+    condition: "uk-used",
+    grade: "Very good",
     specs: ["Intel Core i5", "16GB RAM", "14″ Full HD"],
     price: null,
     availability: "in-stock",
@@ -189,6 +208,9 @@ export const products: Product[] = [
       src: unsplash("1618412687308-52a053fc4e72"),
       alt: "Silver business laptop showing the Windows lock screen",
     },
+    deal: { type: "save", percent: 40 },
+    featured: true,
+    highlight: "A tough business laptop for office, school and everyday work.",
   },
   {
     id: "thinkpad-t14-512",
@@ -196,7 +218,8 @@ export const products: Product[] = [
     variant: "512GB SSD",
     category: "laptops",
     subcategory: "windows",
-    condition: "UK used",
+    condition: "uk-used",
+    grade: "Very good",
     specs: ["Intel Core i7", "16GB RAM", "14″ Full HD"],
     price: null,
     availability: "limited-stock",
@@ -204,6 +227,7 @@ export const products: Product[] = [
       src: unsplash("1743456056142-1aaf69656dfa"),
       alt: "Lenovo ThinkPad laptop displaying a sunset wallpaper",
     },
+    deal: { type: "flash" },
   },
 
   /* ------------------------------- Accessories ------------------------------ */
@@ -213,7 +237,7 @@ export const products: Product[] = [
     variant: "1TB",
     category: "accessories",
     subcategory: "ssd",
-    condition: "Brand new",
+    condition: "brand-new",
     specs: ["USB 3.2 Gen 2", "Up to 1,050MB/s", "Pocket-sized"],
     price: null,
     availability: "in-stock",
@@ -228,7 +252,7 @@ export const products: Product[] = [
     variant: "512GB",
     category: "accessories",
     subcategory: "ssd",
-    condition: "Brand new",
+    condition: "brand-new",
     specs: ["PCIe NVMe", "For laptop & desktop upgrades"],
     price: null,
     availability: "in-stock",
@@ -243,7 +267,7 @@ export const products: Product[] = [
     variant: "64GB",
     category: "accessories",
     subcategory: "pen-drives",
-    condition: "Brand new",
+    condition: "brand-new",
     specs: ["USB 3.0", "Compact design"],
     price: null,
     availability: "in-stock",
@@ -258,7 +282,7 @@ export const products: Product[] = [
     variant: "IPS",
     category: "accessories",
     subcategory: "screens",
-    condition: "Brand new",
+    condition: "brand-new",
     specs: ["1920 × 1080", "HDMI input", "Slim bezels"],
     price: null,
     availability: "in-stock",
@@ -273,7 +297,7 @@ export const products: Product[] = [
     variant: "USB‑C",
     category: "accessories",
     subcategory: "earbuds",
-    condition: "Brand new",
+    condition: "brand-new",
     specs: ["Active Noise Cancellation", "MagSafe charging case"],
     price: null,
     availability: "in-stock",
@@ -281,13 +305,14 @@ export const products: Product[] = [
       src: unsplash("1572569511254-d8f925fe2cbb"),
       alt: "Apple AirPods Pro with open charging case",
     },
+    deal: { type: "hot" },
   },
   {
     id: "wireless-earbuds",
     name: "Wireless Bluetooth Earbuds",
     category: "accessories",
     subcategory: "earbuds",
-    condition: "Brand new",
+    condition: "brand-new",
     specs: ["Bluetooth", "Charging case", "Touch controls"],
     price: null,
     availability: "in-stock",
@@ -301,7 +326,7 @@ export const products: Product[] = [
     name: "65W USB‑C Fast Charger",
     category: "accessories",
     subcategory: "chargers",
-    condition: "Brand new",
+    condition: "brand-new",
     specs: ["USB‑C Power Delivery", "Charges phones & laptops"],
     price: null,
     availability: "in-stock",
@@ -316,7 +341,7 @@ export const products: Product[] = [
     variant: "20,000mAh",
     category: "accessories",
     subcategory: "other-accessories",
-    condition: "Brand new",
+    condition: "brand-new",
     specs: ["Fast charging", "Dual output"],
     price: null,
     availability: "in-stock",
@@ -327,4 +352,6 @@ export const products: Product[] = [
   },
 ];
 
-export const featuredProducts = products.filter((p) => p.featured);
+export function getProduct(id: string): Product | undefined {
+  return products.find((p) => p.id === id);
+}

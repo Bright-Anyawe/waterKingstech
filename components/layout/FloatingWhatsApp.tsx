@@ -9,13 +9,13 @@ export function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with WaterKingsTech on WhatsApp"
-      className="group fixed right-6 bottom-6 z-40 hidden h-14 items-center overflow-hidden rounded-full bg-whatsapp text-whatsapp-ink shadow-[0_18px_40px_-14px_rgb(37_211_102/0.75),0_0_0_1px_rgb(0_0_0/0.04)] transition-[transform,background-color] duration-300 ease-[var(--ease-premium)] hero-fade [--i:6] hover:-translate-y-0.5 hover:bg-whatsapp-hover md:flex"
+      className="group fixed right-6 bottom-6 z-40 hidden h-14 items-center overflow-hidden rounded-full bg-whatsapp text-whatsapp-ink shadow-[0_14px_30px_-12px_rgb(15_122_61/0.7)] transition-[transform,background-color] duration-300 ease-[var(--ease-out-expo)] hover:-translate-y-0.5 hover:bg-whatsapp-hover md:flex"
     >
       <span className="flex size-14 shrink-0 items-center justify-center">
         <WhatsAppIcon className="size-6" />
       </span>
-      <span className="grid grid-cols-[0fr] transition-[grid-template-columns] duration-500 ease-[var(--ease-premium)] group-hover:grid-cols-[1fr] group-focus-visible:grid-cols-[1fr]">
-        <span className="overflow-hidden whitespace-nowrap pr-0 text-sm font-semibold transition-[padding] duration-500 group-hover:pr-5 group-focus-visible:pr-5">
+      <span className="grid grid-cols-[0fr] transition-[grid-template-columns] duration-500 ease-[var(--ease-out-expo)] group-hover:grid-cols-[1fr] group-focus-visible:grid-cols-[1fr]">
+        <span className="overflow-hidden pr-0 text-sm font-bold whitespace-nowrap transition-[padding] duration-500 group-hover:pr-5 group-focus-visible:pr-5">
           Chat with us
         </span>
       </span>

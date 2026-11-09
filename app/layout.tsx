@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { Footer } from "@/components/layout/Footer";
 import { MobileActionBar } from "@/components/layout/MobileActionBar";
-import { Navbar } from "@/components/layout/Navbar";
+import { PromoTicker } from "@/components/layout/PromoTicker";
+import { SiteHeader } from "@/components/layout/SiteHeader";
 import { MotionProvider } from "@/components/providers/MotionProvider";
 import { business } from "@/data/business";
 import { siteUrl } from "@/lib/site";
@@ -22,9 +23,17 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+/** Display face — its wide, heavy capitals echo the "WATER KINGS" wordmark. */
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  display: "swap",
+});
+
 const title = `${business.name} — Phones, Laptops, Accessories & Repairs in Accra, Ghana`;
 const description =
-  "Shop genuine smartphones, iPhones, Samsung phones, laptops, MacBooks and accessories at Circle Mall, Tip Toe Lane, Accra — or get professional phone and laptop repairs. Installment plans and referral commissions at WaterKingsTech.";
+  "Shop UK used and brand new iPhones, Samsung phones, laptops, MacBooks and accessories at Circle Mall, Accra. Free gifts with every phone and laptop, 3-month warranty on UK used devices, installment plans, repairs and corporate bulk quotes.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -38,14 +47,15 @@ export const metadata: Metadata = {
     "WaterKingsTech",
     "phones in Ghana",
     "phones in Accra",
-    "smartphones in Ghana",
+    "UK used phones",
+    "UK used laptops",
     "iPhones in Ghana",
     "laptops in Ghana",
     "MacBooks in Ghana",
-    "phone repair",
-    "laptop repair",
-    "phone accessories",
-    "installment phones",
+    "phone repair Accra",
+    "laptop repair Accra",
+    "installment phones Ghana",
+    "bulk laptops for schools",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -66,26 +76,31 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#07090c",
+  themeColor: "#062a5c",
   colorScheme: "light",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-GH" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <body className="min-h-dvh bg-ink-950 pb-action-bar">
+    <html
+      lang="en-GH"
+      data-scroll-behavior="smooth"
+      className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased`}
+    >
+      <body className="min-h-dvh pb-action-bar">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: toJsonLd(localBusinessJsonLd()) }}
         />
         <a
           href="#main"
-          className="fixed top-3 left-3 z-[70] -translate-y-20 rounded-full bg-white px-4 py-2 text-sm font-medium text-ink-950 shadow-lg transition-transform focus:translate-y-0"
+          className="fixed top-3 left-3 z-[70] -translate-y-20 rounded-lg bg-royal-600 px-4 py-2 text-sm font-semibold text-white shadow-lg transition-transform focus:translate-y-0"
         >
           Skip to content
         </a>
         <MotionProvider>
-          <Navbar />
+          <PromoTicker />
+          <SiteHeader />
           <main id="main">{children}</main>
           <Footer />
           <FloatingWhatsApp />

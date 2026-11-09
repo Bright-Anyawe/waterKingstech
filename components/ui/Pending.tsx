@@ -17,8 +17,8 @@ export function Pending({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-md border border-dashed px-2 py-0.5 font-mono text-[0.72rem] leading-5",
-        tone === "dark" ? "border-amber-300/40 bg-amber-300/[0.07] text-amber-200" : "border-amber-500/50 bg-amber-50 text-amber-800",
+        "inline-flex items-center gap-1.5 rounded-md border border-dashed px-2 py-0.5 text-[0.72rem] leading-5 font-medium",
+        tone === "dark" ? "border-amber-300/50 bg-amber-300/10 text-amber-100" : "border-amber-500/60 bg-amber-50 text-amber-800",
         className,
       )}
     >

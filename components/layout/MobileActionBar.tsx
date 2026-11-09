@@ -7,15 +7,15 @@ export function MobileActionBar() {
   return (
     <nav
       aria-label="Quick contact"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-ink-950/90 px-3 pt-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] backdrop-blur-xl md:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-ice-200 bg-white/95 px-3 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] shadow-[0_-10px_30px_-20px_rgb(6_42_92/0.5)] backdrop-blur-md md:hidden"
     >
-      <ul className="grid grid-cols-[1.35fr_1fr_1fr] gap-2">
+      <ul className="grid grid-cols-[1.4fr_1fr_1fr] gap-2">
         <li>
           <a
             href={whatsappHref()}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-12 items-center justify-center gap-2 rounded-xl bg-whatsapp text-sm font-semibold text-whatsapp-ink active:scale-[0.97] transition-transform"
+            className="flex h-12 items-center justify-center gap-2 rounded-lg bg-whatsapp text-sm font-bold text-whatsapp-ink transition-transform active:scale-[0.97]"
           >
             <WhatsAppIcon className="size-5" />
             WhatsApp
@@ -24,9 +24,9 @@ export function MobileActionBar() {
         <li>
           <a
             href={callHref}
-            className="flex h-12 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] text-sm font-medium text-white active:scale-[0.97] transition-transform"
+            className="flex h-12 items-center justify-center gap-1.5 rounded-lg border border-ice-300 text-sm font-semibold text-ink transition-transform active:scale-[0.97]"
           >
-            <Phone className="size-4" aria-hidden="true" />
+            <Phone className="size-4 text-royal-600" aria-hidden="true" />
             Call
           </a>
         </li>
@@ -35,9 +35,9 @@ export function MobileActionBar() {
             href={directionsHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-12 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] text-sm font-medium text-white active:scale-[0.97] transition-transform"
+            className="flex h-12 items-center justify-center gap-1.5 rounded-lg border border-ice-300 text-sm font-semibold text-ink transition-transform active:scale-[0.97]"
           >
-            <MapPin className="size-4" aria-hidden="true" />
+            <MapPin className="size-4 text-royal-600" aria-hidden="true" />
             Directions
           </a>
         </li>

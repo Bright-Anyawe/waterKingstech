@@ -13,6 +13,9 @@ export type ImageAsset = {
 
 export type CategoryId = "smartphones" | "laptops" | "accessories";
 
+/** URL segment for each category page, e.g. /shop/phones */
+export type CategorySlug = "phones" | "laptops" | "accessories";
+
 export type SubcategoryId =
   | "iphone"
   | "samsung"
@@ -33,7 +36,10 @@ export type Subcategory = {
 
 export type Category = {
   id: CategoryId;
+  slug: CategorySlug;
   label: string;
+  /** Short name used in the header and on the category rail */
+  shortLabel: string;
   description: string;
   image: ImageAsset;
   subcategories: Subcategory[];
@@ -41,10 +47,19 @@ export type Category = {
 
 export type Availability = "in-stock" | "limited-stock" | "out-of-stock" | "on-request";
 
-export type Condition = "Brand new" | "UK used" | "Excellent condition" | "Very good condition" | "Refurbished";
+/** "uk-used": tested, imported, graded devices. "brand-new": factory sealed ("fresh in box"). */
+export type Condition = "uk-used" | "brand-new";
+
+/**
+ * Promotional tag shown on the product card.
+ * - save:  "SAVE 40%"
+ * - hot:   "HOT DEAL"
+ * - flash: "WEEKEND FLASH SALE"
+ */
+export type Deal = { type: "save"; percent: number } | { type: "hot" } | { type: "flash" };
 
 export type Product = {
-  /** Unique, URL-safe identifier */
+  /** Unique, URL-safe identifier — also the product page address: /product/<id> */
   id: string;
   /** Model name, e.g. "iPhone 15 Pro" */
   name: string;
@@ -52,16 +67,20 @@ export type Product = {
   variant?: string;
   category: CategoryId;
   subcategory: SubcategoryId;
-  condition?: Condition;
+  condition: Condition;
+  /** Cosmetic grade for UK-used devices, e.g. "Excellent" */
+  grade?: string;
   /** 2–4 short, scannable specs */
   specs: string[];
-  /** Price in Ghana cedis. `null` shows "Price on request". */
+  /** Price in Ghana cedis. `null` shows "Ask for price". */
   price: number | null;
   availability: Availability;
   image: ImageAsset;
-  /** Shown in the larger Featured Products section */
+  /** Optional promotional tag */
+  deal?: Deal;
+  /** Shown first in the home page's "Trending" grid */
   featured?: boolean;
-  /** One-line pitch used on featured cards */
+  /** One-line pitch shown on the card and product page */
   highlight?: string;
 };
 
@@ -81,7 +100,7 @@ export type RepairService = {
   name: string;
   description: string;
   icon: RepairIcon;
-  /** Only shown when supplied by WaterKingsTech, e.g. "Same day" */
+  /** Estimated turnaround, e.g. "Same day" or "1–2 days". `null` until WaterKingsTech supplies it. */
   turnaround: string | null;
 };
 

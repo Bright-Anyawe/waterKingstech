@@ -1,5 +1,6 @@
 import { business } from "@/data/business";
 import { contact } from "@/data/contact";
+import { conditionLabel } from "@/data/offers";
 import type { Product, RepairService } from "@/types";
 
 /* -------------------------------------------------------------------------- */
@@ -11,27 +12,29 @@ const greeting = `Hello ${business.name},`;
 export const whatsappMessages = {
   general: `${greeting} I found you through your website and I'd like to make an enquiry.`,
   repair: `${greeting} I need help repairing my device. I'd like to ask about your repair service.`,
-  installment: `${greeting} I'm interested in purchasing a device through your installment option. Please send me the requirements and available options.`,
-  referral: `${greeting} I'd like to know more about your referral program.`,
+  installment: `${greeting} I'm interested in buying a device on installment. Please send me the requirements and available options.`,
+  referral: `${greeting} I'd like to join your referral program and earn commission.`,
   visit: `${greeting} I'd like to visit your shop. Could you share directions?`,
   review: `${greeting} I'd like to share a review of my experience with you.`,
   catalog: `${greeting} I'm looking for a device that I didn't see on your website. Can you help?`,
+  deals: `${greeting} I saw your deals on the website. Which offers are available today?`,
+  corporate: `${greeting} I'm buying for an organisation and would like a bulk quotation.`,
 } as const;
 
 export function productMessage(product: Product): string {
-  const title = productTitle(product);
+  const title = `${productTitle(product)} (${conditionLabel[product.condition]})`;
 
   if (product.availability === "out-of-stock") {
-    return `${greeting} I'm interested in the ${title} listed on your website. Will it be back in stock soon?`;
+    return `${greeting} I'm interested in the ${title} on your website. Will it be back in stock soon?`;
   }
   if (product.price === null) {
-    return `${greeting} I'm interested in the ${title} listed on your website. Is it currently available, and what is the price?`;
+    return `${greeting} I'm interested in the ${title} on your website. Is it available, and what is the price?`;
   }
-  return `${greeting} I'm interested in the ${title} listed on your website. Is it currently available?`;
+  return `${greeting} I'm interested in the ${title} on your website. Is it available?`;
 }
 
 export function repairMessage(service: RepairService): string {
-  return `${greeting} I need help with ${service.name.toLowerCase()} for my device. I'd like to ask about your repair service.`;
+  return `${greeting} I need help with ${service.name.toLowerCase()} for my device. How long would it take, and what would it cost?`;
 }
 
 /**
@@ -51,11 +54,25 @@ export function whatsappHref(
 export const whatsappNumbersDisplay = contact.whatsapp.map((w) => w.display).join(" / ");
 
 /* -------------------------------------------------------------------------- */
+/*  Email                                                                     */
+/* -------------------------------------------------------------------------- */
+
+export function emailHref(subject?: string, body?: string): string | null {
+  if (!contact.email) return null;
+  const params = new URLSearchParams();
+  if (subject) params.set("subject", subject);
+  if (body) params.set("body", body);
+  // URLSearchParams encodes spaces as "+", which mail clients show literally.
+  const query = params.toString().replace(/\+/g, "%20");
+  return `mailto:${contact.email}${query ? `?${query}` : ""}`;
+}
+
+/* -------------------------------------------------------------------------- */
 /*  Phone & directions                                                        */
 /* -------------------------------------------------------------------------- */
 
-/** tel: link, or the contact section until a number is supplied. */
-export const callHref = contact.phone ? `tel:${contact.phone.replace(/\s+/g, "")}` : "#contact";
+/** tel: link, or the visit page until a number is supplied. */
+export const callHref = contact.phone ? `tel:${contact.phone.replace(/\s+/g, "")}` : "/visit";
 
 export const hasPhone = Boolean(contact.phone);
 

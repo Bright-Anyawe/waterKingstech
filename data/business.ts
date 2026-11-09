@@ -11,6 +11,8 @@ export const business = {
   name: "WaterKingsTech",
   tagline: "Your Next Device. Your Trusted Tech Partner.",
   slogan: "Top quality. Best prices. Trusted service.",
+  /** Tagline from the official logo (supplied 9 November 2026). */
+  logoTagline: "Expert Tech Solutions, Always Reliable.",
   summary: "Phones • Laptops • Accessories • Repairs",
   description:
     "WaterKingsTech is your one-stop tech destination in Accra — genuine smartphones, laptops and accessories, professional device repairs, installment plans and referral rewards.",

@@ -1,49 +1,57 @@
-import { useId } from "react";
+import Image from "next/image";
+import { business } from "@/data/business";
 import { cn } from "@/lib/cn";
+import logoMark from "@/public/brand/logo-mark.png";
+import logoWordmark from "@/public/brand/logo-wordmark.png";
 
 /**
- * Interim WaterKingsTech mark: a "W" whose three peaks double as a crown.
- * Replace with the official logo when supplied.
+ * The official WaterKingsTech logo. The crown/laptop/wave mark and the
+ * "WATER KINGS" wordmark are cut from the client's logo file
+ * (public/brand/logo-original.png). In that file "TECH" and the tagline are
+ * white on white, so they are set here as live text in the logo's style.
  */
-export function LogoMark({ className }: { className?: string }) {
-  const gradientId = useId();
+function TechRule({ size }: { size: "sm" | "lg" }) {
   return (
-    <svg viewBox="0 0 32 32" aria-hidden="true" className={cn("size-8", className)}>
-      <defs>
-        <linearGradient id={gradientId} x1="4" y1="6" x2="28" y2="26" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#7fe3f5" />
-          <stop offset="1" stopColor="#12b5d6" />
-        </linearGradient>
-      </defs>
-      <rect width="32" height="32" rx="9" fill="#0c1015" />
-      <rect x="0.5" y="0.5" width="31" height="31" rx="8.5" fill="none" stroke="#ffffff" strokeOpacity="0.1" />
-      <path
-        d="M7 11.5 11.2 23 16 14.2 20.8 23 25 11.5"
-        fill="none"
-        stroke={`url(#${gradientId})`}
-        strokeWidth="2.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="7" cy="8" r="1.5" fill="#7fe3f5" />
-      <circle cx="16" cy="10.4" r="1.5" fill="#3dd1ec" />
-      <circle cx="25" cy="8" r="1.5" fill="#12b5d6" />
-    </svg>
+    <span aria-hidden="true" className={cn("flex w-full items-center", size === "sm" ? "gap-1.5" : "gap-3")}>
+      <span className="h-[2px] flex-1 rounded-full bg-linear-to-r from-transparent via-cyan to-royal-600" />
+      <span
+        className={cn(
+          "font-display font-semibold text-royal-600 uppercase",
+          size === "sm" ? "text-[0.5rem] leading-none tracking-[0.55em] [margin-right:-0.55em]" : "text-sm tracking-[0.6em] [margin-right:-0.6em]",
+        )}
+      >
+        Tech
+      </span>
+      <span className="h-[2px] flex-1 rounded-full bg-linear-to-l from-transparent via-cyan to-royal-600" />
+    </span>
   );
 }
 
-export function Logo({ tone = "dark", className }: { tone?: "dark" | "light"; className?: string }) {
+/** Horizontal lockup for the header and compact spaces. */
+export function Logo({ className, priority = false }: { className?: string; priority?: boolean }) {
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <LogoMark />
-      <span
-        className={cn(
-          "text-[1.05rem] font-semibold tracking-[-0.03em]",
-          tone === "dark" ? "text-white" : "text-ink-950",
-        )}
-      >
-        WaterKings<span className={tone === "dark" ? "text-tide-400" : "text-tide-600"}>Tech</span>
+    <span className={cn("inline-flex items-center gap-2", className)}>
+      <Image src={logoMark} alt="" priority={priority} sizes="64px" className="h-8 w-auto sm:h-10" />
+      <span className="flex flex-col items-stretch gap-[3px]">
+        <Image src={logoWordmark} alt="" priority={priority} sizes="160px" className="h-[12px] w-auto sm:h-[15px]" />
+        <TechRule size="sm" />
       </span>
+      <span className="sr-only">{business.name}</span>
+    </span>
+  );
+}
+
+/** Stacked lockup with the logo tagline, as on the original artwork. */
+export function LogoStacked({ className }: { className?: string }) {
+  return (
+    <span className={cn("inline-flex w-64 flex-col items-center", className)}>
+      <Image src={logoMark} alt="" sizes="160px" className="h-24 w-auto" />
+      <Image src={logoWordmark} alt="" sizes="260px" className="mt-3 h-auto w-full" />
+      <span className="mt-2 w-full">
+        <TechRule size="lg" />
+      </span>
+      <span className="mt-2 text-center text-[0.8rem] text-ink-soft">{business.logoTagline}</span>
+      <span className="sr-only">{business.name}</span>
     </span>
   );
 }

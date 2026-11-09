@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-09T18:00:00Z",
+  "title": "Design System: WaterKingsTech",
+  "extensions": {
+    "colorMeta": {
+      "royal-600": { "role": "primary", "displayName": "Logo Royal", "canonical": "#0c6de2", "tonalRamp": ["#031a3d", "#0b468f", "#0a58bb", "#0c6de2", "#108bd5", "#84bdf5", "#b9d8fb", "#eef6ff"] },
+      "royal-500": { "role": "primary", "displayName": "Wordmark Blue", "canonical": "#108bd5", "tonalRamp": ["#031a3d", "#0b468f", "#0a58bb", "#0c6de2", "#108bd5", "#84bdf5", "#b9d8fb", "#eef6ff"] },
+      "royal-700": { "role": "primary", "displayName": "Deep Royal", "canonical": "#0a58bb" },
+      "royal-800": { "role": "primary", "displayName": "Deep Royal", "canonical": "#0b468f" },
+      "royal-50": { "role": "primary", "displayName": "Royal Mist", "canonical": "#eef6ff" },
+      "navy": { "role": "secondary", "displayName": "Harbour Navy", "canonical": "#062a5c", "tonalRamp": ["#020f24", "#031a3d", "#062a5c", "#123f7d", "#2e5c9a", "#5f86ba", "#a3bcdc", "#e3ebf6"] },
+      "cyan": { "role": "secondary", "displayName": "Rule Cyan", "canonical": "#25c3f4", "tonalRamp": ["#063a4a", "#0a5f78", "#0f88ab", "#25c3f4", "#5fd3f7", "#a0e5f9", "#cdf2fc", "#effbfe"] },
+      "cyan-200": { "role": "secondary", "displayName": "Pale Cyan", "canonical": "#a0e5f9" },
+      "orange": { "role": "tertiary", "displayName": "Deal Orange", "canonical": "#ff8a1f", "tonalRamp": ["#4a2100", "#7a3800", "#b85400", "#f57800", "#ff8a1f", "#ffb366", "#ffd6ad", "#fff2e5"] },
+      "orange-strong": { "role": "tertiary", "displayName": "Deal Orange (pressed)", "canonical": "#f57800" },
+      "save": { "role": "tertiary", "displayName": "Save Red", "canonical": "#d7263d" },
+      "flash": { "role": "tertiary", "displayName": "Flash Violet", "canonical": "#6d28d9" },
+      "gift": { "role": "tertiary", "displayName": "Gift Green", "canonical": "#0f7a3d" },
+      "gift-bg": { "role": "tertiary", "displayName": "Gift Green Wash", "canonical": "#e5f6eb" },
+      "whatsapp": { "role": "tertiary", "displayName": "WhatsApp Green", "canonical": "#25d366", "tonalRamp": ["#04170b", "#0b4a22", "#13803b", "#1fc15c", "#25d366", "#6ee59a", "#b5f2ca", "#eafbf0"] },
+      "whatsapp-hover": { "role": "tertiary", "displayName": "WhatsApp Green (hover)", "canonical": "#1fc15c" },
+      "whatsapp-ink": { "role": "tertiary", "displayName": "WhatsApp Ink", "canonical": "#04170b" },
+      "ice": { "role": "neutral", "displayName": "Ice Ground", "canonical": "#eef4fa", "tonalRamp": ["#0f1b2d", "#3d4d63", "#5a687d", "#c3d4e6", "#d9e5f1", "#eef4fa", "#f6f9fd", "#ffffff"] },
+      "ice-100": { "role": "neutral", "displayName": "Ice Paper", "canonical": "#f6f9fd" },
+      "ice-200": { "role": "neutral", "displayName": "Ice Line", "canonical": "#d9e5f1" },
+      "ice-300": { "role": "neutral", "displayName": "Ice Line Strong", "canonical": "#c3d4e6" },
+      "white": { "role": "neutral", "displayName": "Card White", "canonical": "#ffffff" },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#0f1b2d" },
+      "ink-soft": { "role": "neutral", "displayName": "Ink Soft", "canonical": "#3d4d63" },
+      "ink-muted": { "role": "neutral", "displayName": "Ink Muted", "canonical": "#5a687d" },
+      "pending-bg": { "role": "neutral", "displayName": "Pending Amber Wash", "canonical": "Tailwind amber-50, oklch(98.7% 0.022 95.3); hex is an approximation" },
+      "pending-border": { "role": "neutral", "displayName": "Pending Amber Line", "canonical": "Tailwind amber-500 at 60% opacity; hex is an approximation" },
+      "pending-ink": { "role": "neutral", "displayName": "Pending Amber Ink", "canonical": "Tailwind amber-800, oklch(47.3% 0.137 46.2); hex is an approximation" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Search-band question and page banner h1s. Montserrat ExtraBold echoes the logo wordmark." },
+      "headline": { "displayName": "Headline", "purpose": "Section headers, optionally paired with a royal 'See all' link on the right." },
+      "price": { "displayName": "Price", "purpose": "Listing and product prices in royal-600 with tabular numerals; 1.875rem on the product page." },
+      "title": { "displayName": "Title", "purpose": "Listing card names, rail labels, list rows." },
+      "body": { "displayName": "Body", "purpose": "Leads and descriptions; meta lines at 0.72-0.8rem in ink-muted." },
+      "label": { "displayName": "Label", "purpose": "Condition, warranty and assurance chips." },
+      "deal-tag": { "displayName": "Deal Tag", "purpose": "Uppercase SAVE / HOT DEAL / WEEKEND FLASH SALE tags on product photos." }
+    },
+    "shadows": [
+      { "name": "button-glow-royal", "value": "0 6px 16px -8px rgb(12 109 226 / 0.7)", "purpose": "Under primary buttons." },
+      { "name": "button-glow-whatsapp", "value": "0 6px 16px -8px rgb(37 211 102 / 0.8)", "purpose": "Under WhatsApp buttons." },
+      { "name": "button-glow-orange", "value": "0 6px 16px -8px rgb(245 120 0 / 0.8)", "purpose": "Under orange deal buttons." },
+      { "name": "tag-lift", "value": "0 4px 10px -4px rgb(3 26 61 / 0.45)", "purpose": "Deal tags sitting on product photos." },
+      { "name": "search-float", "value": "0 10px 30px -14px rgb(3 26 61 / 0.55)", "purpose": "Hero search field and select on the blue band." },
+      { "name": "card-hover", "value": "0 18px 36px -22px rgb(6 42 92 / 0.45)", "purpose": "Listing card hover, with a 2px lift." },
+      { "name": "banner-hover", "value": "0 20px 40px -24px rgb(3 26 61 / 0.7)", "purpose": "Bundle banner hover, with a 2px lift." },
+      { "name": "floating-pill", "value": "0 14px 30px -12px rgb(15 122 61 / 0.7)", "purpose": "Desktop floating WhatsApp pill." },
+      { "name": "action-bar", "value": "0 -10px 30px -20px rgb(6 42 92 / 0.5)", "purpose": "Fixed mobile action bar." },
+      { "name": "sheet", "value": "-20px 0 50px -20px rgb(3 26 61 / 0.5)", "purpose": "Slide-in mobile menu sheet." },
+      { "name": "segment-active", "value": "0 2px 6px -2px rgb(6 42 92 / 0.25)", "purpose": "Active segment of the Retail | Corporate switch." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Card and banner hover lifts, photo zoom, rise-in." },
+      { "name": "ticker", "value": "ticker 48s linear infinite", "purpose": "Promo ticker marquee; pauses on hover." },
+      { "name": "rise", "value": "rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; delay = index x 70ms", "purpose": "Search-band entrance, CSS only." },
+      { "name": "state", "value": "200ms ease-out", "purpose": "Button colour changes, press to 97% scale, arrow nudges." },
+      { "name": "reduced-motion", "value": "animation and transition durations 0.01ms", "purpose": "All motion neutralised under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Royal-filled action for in-site navigation and secondary commitments.",
+      "html": "<button class=\"ds-btn-primary\">Browse laptops <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 20px; border: 0; border-radius: 8px; background: var(--color-royal-600, #0c6de2); color: #fff; font: 600 14px/1 var(--font-sans, system-ui, sans-serif); box-shadow: 0 6px 16px -8px rgb(12 109 226 / 0.7); cursor: pointer; transition: background-color .2s ease-out, transform .2s ease-out; } .ds-btn-primary svg { transition: transform .2s; } .ds-btn-primary:hover { background: var(--color-royal-700, #0a58bb); } .ds-btn-primary:hover svg { transform: translateX(2px); } .ds-btn-primary:active { transform: scale(.97); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-royal-600, #0c6de2); outline-offset: 2px; }"
+    },
+    {
+      "name": "WhatsApp Button",
+      "kind": "button",
+      "refersTo": "button-whatsapp",
+      "description": "The conversation-starting action that ends every listing, service and offer.",
+      "html": "<button class=\"ds-btn-whatsapp\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z\"/></svg>Buy on WhatsApp</button>",
+      "css": ".ds-btn-whatsapp { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 44px; padding: 0 20px; border: 0; border-radius: 8px; background: var(--color-whatsapp, #25d366); color: var(--color-whatsapp-ink, #04170b); font: 700 14px/1 var(--font-sans, system-ui, sans-serif); box-shadow: 0 6px 16px -8px rgb(37 211 102 / 0.8); cursor: pointer; transition: background-color .2s ease-out, transform .2s ease-out; } .ds-btn-whatsapp:hover { background: var(--color-whatsapp-hover, #1fc15c); } .ds-btn-whatsapp:active { transform: scale(.97); } .ds-btn-whatsapp:focus-visible { outline: 2px solid var(--color-royal-600, #0c6de2); outline-offset: 2px; }"
+    },
+    {
+      "name": "Hot Deals Button",
+      "kind": "button",
+      "refersTo": "button-orange",
+      "description": "The orange counter-accent; deals only, ink text.",
+      "html": "<button class=\"ds-btn-orange\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"><path d=\"M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3.2.4 1.3 1.4 2.7 2.5 2.7Z\"/></svg>Hot Deals</button>",
+      "css": ".ds-btn-orange { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border: 0; border-radius: 8px; background: var(--color-orange, #ff8a1f); color: var(--color-ink, #0f1b2d); font: 700 14px/1 var(--font-sans, system-ui, sans-serif); box-shadow: 0 6px 16px -8px rgb(245 120 0 / 0.8); cursor: pointer; transition: background-color .2s ease-out, transform .2s; } .ds-btn-orange:hover { background: var(--color-orange-strong, #f57800); } .ds-btn-orange:active { transform: scale(.97); } .ds-btn-orange:focus-visible { outline: 2px solid var(--color-royal-600, #0c6de2); outline-offset: 2px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Quiet secondary action on white or ice (Call, Send by email).",
+      "html": "<button class=\"ds-btn-outline\">Send by email</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 20px; border: 1px solid var(--color-ice-300, #c3d4e6); border-radius: 8px; background: #fff; color: var(--color-ink, #0f1b2d); font: 600 14px/1 var(--font-sans, system-ui, sans-serif); cursor: pointer; transition: border-color .2s, color .2s, transform .2s; } .ds-btn-outline:hover { border-color: var(--color-royal-300, #84bdf5); color: var(--color-royal-700, #0a58bb); } .ds-btn-outline:active { transform: scale(.97); } .ds-btn-outline:focus-visible { outline: 2px solid var(--color-royal-600, #0c6de2); outline-offset: 2px; }"
+    },
+    {
+      "name": "Hero Search",
+      "kind": "input",
+      "refersTo": "input-search-hero",
+      "description": "56px search field on the royal band with an orange submit square.",
+      "html": "<div class=\"ds-search-band\"><div class=\"ds-search\"><input class=\"ds-search-input\" type=\"search\" placeholder=\"I am looking for… e.g. iPhone 15, MacBook, SSD\"><button class=\"ds-search-go\" aria-label=\"Search\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg></button></div></div>",
+      "css": ".ds-search-band { padding: 24px; background: linear-gradient(135deg, #0b468f, #0c6de2, #108bd5); border-radius: 12px; } .ds-search { position: relative; max-width: 560px; } .ds-search-input { width: 100%; height: 56px; padding: 0 64px 0 16px; border: 0; border-radius: 12px; background: #fff; color: var(--color-ink, #0f1b2d); font: 400 16px var(--font-sans, system-ui, sans-serif); box-shadow: 0 10px 30px -14px rgb(3 26 61 / 0.55); outline: none; } .ds-search-input::placeholder { color: var(--color-ink-muted, #5a687d); } .ds-search-input:focus-visible { box-shadow: 0 0 0 4px rgb(37 195 244 / 0.5); } .ds-search-go { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; border-radius: 8px; background: var(--color-orange, #ff8a1f); color: var(--color-ink, #0f1b2d); cursor: pointer; transition: background-color .2s; } .ds-search-go:hover { background: var(--color-orange-strong, #f57800); }"
+    },
+    {
+      "name": "Form Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Labelled 44px field used in the corporate quote form.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Organisation name <span class=\"ds-req\">*</span></span><input class=\"ds-input\"></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; max-width: 320px; } .ds-field-label { font: 600 14px var(--font-sans, system-ui, sans-serif); color: var(--color-ink, #0f1b2d); } .ds-req { color: var(--color-save, #d7263d); } .ds-input { height: 44px; padding: 0 14px; border: 1px solid var(--color-ice-300, #c3d4e6); border-radius: 8px; background: #fff; color: var(--color-ink, #0f1b2d); font: 400 15px var(--font-sans, system-ui, sans-serif); outline: none; transition: border-color .2s, box-shadow .2s; } .ds-input:focus { border-color: var(--color-royal-600, #0c6de2); box-shadow: 0 0 0 4px rgb(12 109 226 / 0.15); } .ds-input[aria-invalid=true] { border-color: var(--color-save, #d7263d); }"
+    },
+    {
+      "name": "Type Chips",
+      "kind": "chip",
+      "refersTo": "chip-type",
+      "description": "Round filter chips above listing grids; selected goes solid royal.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\" aria-pressed=\"true\">All</button><button class=\"ds-chip\" aria-pressed=\"false\">iPhone</button><button class=\"ds-chip\" aria-pressed=\"false\">Samsung</button></div>",
+      "css": ".ds-chips { display: flex; gap: 8px; } .ds-chip { height: 36px; padding: 0 16px; border: 1px solid var(--color-ice-300, #c3d4e6); border-radius: 9999px; background: #fff; color: var(--color-ink-soft, #3d4d63); font: 600 13px var(--font-sans, system-ui, sans-serif); cursor: pointer; transition: border-color .2s, color .2s, background-color .2s; } .ds-chip:hover { border-color: var(--color-royal-300, #84bdf5); color: var(--color-royal-700, #0a58bb); } .ds-chip[aria-pressed=true] { border-color: var(--color-royal-600, #0c6de2); background: var(--color-royal-600, #0c6de2); color: #fff; } .ds-chip:focus-visible { outline: 2px solid var(--color-royal-600, #0c6de2); outline-offset: 2px; }"
+    },
+    {
+      "name": "Deal Tags",
+      "kind": "chip",
+      "refersTo": "deal-tag-save",
+      "description": "The fixed, colour-coded deal vocabulary pinned to product photos.",
+      "html": "<div class=\"ds-tags\"><span class=\"ds-tag ds-tag-save\">Save 40%</span><span class=\"ds-tag ds-tag-hot\">Hot deal</span><span class=\"ds-tag ds-tag-flash\">Weekend flash sale</span></div>",
+      "css": ".ds-tags { display: flex; gap: 8px; } .ds-tag { display: inline-flex; align-items: center; padding: 4px 8px; border-radius: 6px; font: 800 10.5px/1 var(--font-sans, system-ui, sans-serif); letter-spacing: .04em; text-transform: uppercase; box-shadow: 0 4px 10px -4px rgb(3 26 61 / 0.45); } .ds-tag-save { background: var(--color-save, #d7263d); color: #fff; } .ds-tag-hot { background: var(--color-orange, #ff8a1f); color: var(--color-ink, #0f1b2d); } .ds-tag-flash { background: var(--color-flash, #6d28d9); color: #fff; }"
+    },
+    {
+      "name": "Listing Card",
+      "kind": "card",
+      "refersTo": "listing-card",
+      "description": "Dense marketplace card: photo with deal tag, price, title, chips, gift line, WhatsApp button.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-img\"><span class=\"ds-card-tag\">Hot deal</span></div><div class=\"ds-card-body\"><p class=\"ds-price\">GH₵ 0,000</p><h3 class=\"ds-card-title\">Sample listing title</h3><p class=\"ds-card-meta\">Short highlight line for the device</p><div class=\"ds-card-chips\"><span class=\"ds-mini\">UK Used · Excellent</span><span class=\"ds-mini ds-mini-warranty\">3-month warranty</span></div><p class=\"ds-gift\">Free case + screen protector</p><a class=\"ds-card-cta\" href=\"#\">Buy on WhatsApp</a></div></article>",
+      "css": ".ds-card { width: 240px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--color-ice-200, #d9e5f1); border-radius: 12px; background: #fff; transition: border-color .3s cubic-bezier(.16,1,.3,1), box-shadow .3s cubic-bezier(.16,1,.3,1), transform .3s cubic-bezier(.16,1,.3,1); } .ds-card:hover { transform: translateY(-2px); border-color: var(--color-ice-300, #c3d4e6); box-shadow: 0 18px 36px -22px rgb(6 42 92 / 0.45); } .ds-card-img { position: relative; aspect-ratio: 4 / 3.3; background: var(--color-ice-100, #f6f9fd); } .ds-card-tag { position: absolute; top: 8px; left: 8px; padding: 4px 8px; border-radius: 6px; font: 800 10.5px/1 var(--font-sans, system-ui, sans-serif); letter-spacing: .04em; text-transform: uppercase; background: var(--color-orange, #ff8a1f); color: var(--color-ink, #0f1b2d); box-shadow: 0 4px 10px -4px rgb(3 26 61 / 0.45); } .ds-card-body { display: flex; flex-direction: column; padding: 14px; } .ds-price { margin: 0; font: 800 18px var(--font-display, Montserrat, sans-serif); letter-spacing: -.02em; color: var(--color-royal-600, #0c6de2); font-variant-numeric: tabular-nums; } .ds-card-title { margin: 0; font: 600 15px/1.375 var(--font-sans, system-ui, sans-serif); color: var(--color-ink, #0f1b2d); } .ds-card-meta { margin: 4px 0 0; font: 400 12.8px/1.375 var(--font-sans, system-ui, sans-serif); color: var(--color-ink-muted, #5a687d); } .ds-card-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; } .ds-mini { padding: 2px 6px; border-radius: 6px; font: 500 11.2px/16px var(--font-sans, system-ui, sans-serif); background: var(--color-ice, #eef4fa); color: var(--color-ink-soft, #3d4d63); } .ds-mini-warranty { background: var(--color-royal-600, #0c6de2); color: #fff; } .ds-gift { margin: 8px 0 0; font: 600 11.8px var(--font-sans, system-ui, sans-serif); color: var(--color-gift, #0f7a3d); } .ds-card-cta { margin-top: 12px; display: flex; align-items: center; justify-content: center; height: 40px; border-radius: 8px; background: var(--color-whatsapp, #25d366); color: var(--color-whatsapp-ink, #04170b); font: 700 14px var(--font-sans, system-ui, sans-serif); text-decoration: none; transition: background-color .2s, transform .2s; } .ds-card-cta:hover { background: var(--color-whatsapp-hover, #1fc15c); } .ds-card-cta:active { transform: scale(.97); } .ds-card-cta:focus-visible { outline: 2px solid var(--color-royal-600, #0c6de2); outline-offset: 2px; }"
+    },
+    {
+      "name": "Portal Switch",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "Retail | Corporate segmented switch in the header.",
+      "html": "<nav class=\"ds-switch\"><a class=\"ds-seg\" aria-current=\"page\" href=\"#\">Retail</a><a class=\"ds-seg\" href=\"#\">Corporate</a></nav>",
+      "css": ".ds-switch { display: inline-flex; padding: 4px; border-radius: 8px; background: var(--color-ice, #eef4fa); } .ds-seg { display: flex; align-items: center; height: 32px; padding: 0 12px; border-radius: 6px; font: 600 12.8px var(--font-sans, system-ui, sans-serif); color: var(--color-ink-soft, #3d4d63); text-decoration: none; transition: color .2s; } .ds-seg:hover { color: var(--color-royal-700, #0a58bb); } .ds-seg[aria-current=page] { background: #fff; color: var(--color-royal-700, #0a58bb); box-shadow: 0 2px 6px -2px rgb(6 42 92 / 0.25); } .ds-seg:focus-visible { outline: 2px solid var(--color-royal-600, #0c6de2); outline-offset: 2px; }"
+    },
+    {
+      "name": "Pending Placeholder",
+      "kind": "custom",
+      "refersTo": "pending",
+      "description": "Amber dashed stand-in for any business fact not yet supplied by the owner.",
+      "html": "<span class=\"ds-pending\"><span class=\"ds-pending-dot\"></span>Opening hours to be supplied</span>",
+      "css": ".ds-pending { display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border: 1px dashed rgb(245 158 11 / 0.6); border-radius: 6px; background: #fffbeb; color: #973c08; font: 500 11.5px/20px var(--font-sans, system-ui, sans-serif); } .ds-pending-dot { width: 6px; height: 6px; border-radius: 9999px; background: currentColor; opacity: .7; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Tidewater Market",
+    "overview": "A bright, busy, trustworthy shop window: the logo's royal-to-cyan blues pour across a search band and break on the logo's own wave, then settle into an ice-blue ground carrying a dense grid of white listing cards. The interface model is Jiji.com.gh, pinned by the user: coloured search band, category rail with live counts, deal-tagged listing cards, filterable listing pages. Familiarity is the feature; a Jiji user should know where everything is.\n\nDensity is high and deliberate. Cards are compact, chips are small, and every listing, service and offer ends in one green WhatsApp action. Colour does the merchandising work: blue for the shop and its links, one orange counter-accent for deals, and a fixed tag vocabulary (red SAVE, orange HOT DEAL, violet WEEKEND FLASH SALE, green gift) that buyers learn once and read everywhere.\n\nHonesty is visible. Any business fact the owner has not supplied renders as an amber dashed Pending placeholder, never as invented copy. The old dark, cinematic brand hero is retired; this world is light, daylight-legible and phone-first.",
+    "keyCharacteristics": [
+      "Logo-sampled blues on an ice-blue ground; white bordered cards.",
+      "The wave edge from the logo closes the search band, portal banners and the footer.",
+      "Montserrat ExtraBold display (echoing the wordmark) over a Geist UI face.",
+      "One orange counter-accent; a fixed, colour-coded deal-tag vocabulary.",
+      "WhatsApp green is reserved for the action that starts a conversation.",
+      "Amber dashed placeholders mark every unconfirmed fact.",
+      "Restrained motion: ticker marquee, search-band rise-in, card hover lift, sheet slides; all off under reduced motion."
+    ],
+    "rules": [
+      { "name": "The One Counter-Accent Rule", "body": "Orange is the only warm accent and it always means \"deal\". Do not use it for decoration, info, or a second brand colour.", "section": "colors" },
+      { "name": "The Green Means Talk Rule", "body": "WhatsApp green belongs to the action that opens a conversation. Gift green (gift) is a different, darker token and never fills a button.", "section": "colors" },
+      { "name": "The Fixed Tag Vocabulary Rule", "body": "SAVE is red, HOT DEAL is orange with ink text, WEEKEND FLASH SALE is violet. New deal types get a new colour only by adding to this vocabulary, never by recolouring an existing tag.", "section": "colors" },
+      { "name": "The Heading Stands Alone Rule", "body": "Section and page headings carry no label or eyebrow line above them. Context comes from breadcrumbs, the banner colour, or an inline badge beside the title (the UK Used warranty badge, the B2B badge).", "section": "typography" },
+      { "name": "The Uppercase Is Merchandise Rule", "body": "Uppercase is reserved for deal tags, bundle headliners and offer badges. Navigation, headings and body stay in sentence case.", "section": "typography" },
+      { "name": "The Flat Until Touched Rule", "body": "Cards, rails and panels rest flat on a 1px ice-line border. Elevation is a hover response (lift plus shadow) or belongs to a coloured action.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do put prices in Montserrat 800 royal-600 with tabular numerals; show \"Ask for price\" when the price is null.",
+      "Do end every listing, service and offer with a WhatsApp-green action in whatsapp-ink text.",
+      "Do render every unconfirmed business fact with the amber dashed Pending placeholder.",
+      "Do keep cards white on the ice ground with a 1px ice-200 border and 12px radius.",
+      "Do use the wave edge where a coloured band meets the next surface.",
+      "Do keep motion to the ticker, the search-band rise-in (0.7s expo-out, 70ms stagger), card and banner hover lifts, and sheet slides, all neutralised under prefers-reduced-motion."
+    ],
+    "donts": [
+      "Don't return to the old dark, cinematic brand hero or a centred-headline-over-equal-cards landing.",
+      "Don't put a label, kicker or eyebrow line above headings.",
+      "Don't use orange for anything but deals, or set white text on orange or WhatsApp green.",
+      "Don't use neutral grey or hard offset shadows; shadows are soft and brand-tinted.",
+      "Don't invent prices, reviews, hours, turnaround times or terms to fill a layout."
+    ]
+  }
+}

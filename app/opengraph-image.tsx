@@ -1,65 +1,77 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { business } from "@/data/business";
 
-export const alt = `${business.name} — Phones, Laptops, Accessories & Repairs in Accra, Ghana`;
+export const alt = `${business.name} — Phones, Laptops, Accessories & Repairs at Circle Mall, Accra`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpengraphImage() {
+const toDataUri = (base64: string) => `data:image/png;base64,${base64}`;
+
+export default async function OpengraphImage() {
+  const [markFile, wordmarkFile] = await Promise.all([
+    readFile(join(process.cwd(), "public/brand/logo-mark.png"), "base64"),
+    readFile(join(process.cwd(), "public/brand/logo-wordmark.png"), "base64"),
+  ]);
+  const mark = toDataUri(markFile);
+  const wordmark = toDataUri(wordmarkFile);
+
   return new ImageResponse(
     (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          padding: "72px 80px",
-          background: "radial-gradient(circle at 85% 10%, rgba(18,181,214,0.35), transparent 55%), #07090c",
-          color: "white",
-          fontFamily: "sans-serif",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div
-            style={{
-              width: 72,
-              height: 72,
-              borderRadius: 20,
-              background: "#0c1015",
-              border: "2px solid rgba(255,255,255,0.12)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <svg width="48" height="48" viewBox="0 0 32 32">
-              <path
-                d="M7 11.5 11.2 23 16 14.2 20.8 23 25 11.5"
-                fill="none"
-                stroke="#3dd1ec"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <circle cx="7" cy="8" r="1.5" fill="#7fe3f5" />
-              <circle cx="16" cy="10.4" r="1.5" fill="#3dd1ec" />
-              <circle cx="25" cy="8" r="1.5" fill="#12b5d6" />
-            </svg>
-          </div>
-          <div style={{ display: "flex", fontSize: 40, fontWeight: 700, letterSpacing: -1 }}>
-            WaterKings<span style={{ color: "#3dd1ec" }}>Tech</span>
+      <div style={{ width: "100%", height: "100%", display: "flex", fontFamily: "sans-serif", background: "#eef4fa" }}>
+        <div
+          style={{
+            width: 470,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "white",
+            padding: 40,
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={mark} width={300} height={203} alt="" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={wordmark} width={380} height={40} alt="" style={{ marginTop: 22 }} />
+          <div style={{ display: "flex", alignItems: "center", marginTop: 14, width: 380 }}>
+            <div style={{ flex: 1, height: 3, background: "#25c3f4", borderRadius: 3 }} />
+            <div style={{ display: "flex", padding: "0 18px", fontSize: 22, letterSpacing: 14, color: "#0c6de2", fontWeight: 700 }}>
+              TECH
+            </div>
+            <div style={{ flex: 1, height: 3, background: "#25c3f4", borderRadius: 3 }} />
           </div>
         </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-          <div style={{ display: "flex", flexDirection: "column", fontSize: 76, fontWeight: 700, lineHeight: 1.02, letterSpacing: -3 }}>
-            <span>Your Next Device.</span>
-            <span style={{ color: "#b9f1fb" }}>Your Trusted Tech Partner.</span>
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            padding: "0 64px",
+            background: "linear-gradient(135deg, #0b468f 0%, #0c6de2 60%, #108bd5 100%)",
+            color: "white",
+          }}
+        >
+          <div style={{ display: "flex", fontSize: 58, fontWeight: 800, lineHeight: 1.05, letterSpacing: -1.5 }}>
+            Phones, laptops, accessories &amp; repairs
           </div>
-          <div style={{ display: "flex", fontSize: 30, color: "#9aa4b1" }}>
-            Phones • Laptops • Accessories • Repairs — Circle Mall, Accra
+          <div style={{ display: "flex", marginTop: 22, fontSize: 28, color: "#a0e5f9" }}>UK used · Brand new · Installment</div>
+          <div
+            style={{
+              display: "flex",
+              marginTop: 34,
+              alignSelf: "flex-start",
+              padding: "12px 20px",
+              borderRadius: 12,
+              background: "#ff8a1f",
+              color: "#0f1b2d",
+              fontSize: 26,
+              fontWeight: 800,
+            }}
+          >
+            Circle Mall, Accra — Blue Gate, Gate 2 Exit
           </div>
         </div>
       </div>

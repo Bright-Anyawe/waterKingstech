@@ -2,9 +2,9 @@ import type { Availability } from "@/types";
 
 const cedis = new Intl.NumberFormat("en-GH", { maximumFractionDigits: 0 });
 
-/** 12500 → "GH₵ 12,500" */
+/** 12500 → "GH₵ 12,500" (non-breaking space, so the symbol never wraps away from the amount) */
 export function formatPrice(price: number): string {
-  return `GH₵ ${cedis.format(price)}`;
+  return `GH₵\u00a0${cedis.format(price)}`;
 }
 
 export const availabilityLabel: Record<Availability, string> = {

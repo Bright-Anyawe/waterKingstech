@@ -99,3 +99,9 @@ export const referral = {
   /** Payout method, eligibility, etc. — add once confirmed. */
   terms: null as string | null,
 };
+
+/** Highest purchase commission for an item's category — shown on Tap & Earn buttons. */
+export function maxCommissionFor(category: "smartphones" | "laptops" | "accessories"): number {
+  const id = category === "smartphones" ? "phones" : category;
+  return referral.purchase.find((row) => row.id === id)?.max ?? referral.commission.max;
+}

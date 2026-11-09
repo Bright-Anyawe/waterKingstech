@@ -19,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/uk-used", 0.8, "daily"),
     page("/brand-new", 0.8, "daily"),
     page("/deals", 0.8, "daily"),
+    page("/swap", 0.7),
+    page("/tap-and-earn", 0.7),
     page("/repairs", 0.7),
     page("/referral-installment", 0.6, "monthly"),
     page("/corporate", 0.7, "monthly"),

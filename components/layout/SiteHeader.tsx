@@ -58,7 +58,7 @@ export function SiteHeader() {
 
         {/* Category row — desktop */}
         <nav aria-label="Shop" className="hidden border-t border-ice-200 lg:block">
-          <ul className="container-x flex h-11 items-center gap-1">
+          <ul className="container-x no-scrollbar flex h-11 items-center gap-0.5 overflow-x-auto">
             {navItems.map((item) => {
               const active = isActivePath(pathname, item.href);
               return (
@@ -67,7 +67,7 @@ export function SiteHeader() {
                     href={item.href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "relative flex h-11 items-center px-3 text-[0.84rem] font-semibold transition-colors",
+                      "relative flex h-11 items-center px-2.5 text-[0.84rem] font-semibold whitespace-nowrap transition-colors xl:px-3",
                       active ? "text-royal-700" : "text-ink-soft hover:text-royal-700",
                     )}
                   >

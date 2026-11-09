@@ -1,4 +1,3 @@
-import { MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -9,17 +8,18 @@ import {
   Price,
   WarrantyChip,
 } from "@/components/products/ProductBits";
+import { TapEarnButton } from "@/components/referral/TapEarnButton";
+import { WhatsAppBuyLink } from "@/components/referral/WhatsAppBuyLink";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
-import { productMessage, productTitle, whatsappHref } from "@/lib/contact-links";
+import { productMessage, productTitle } from "@/lib/contact-links";
 import { cn } from "@/lib/cn";
 import type { Product } from "@/types";
 
-export const shopArea = "Circle Mall, Accra";
-
 /**
- * Marketplace listing card: photo, price, title, short description, location,
- * condition chips and a one-tap WhatsApp button. The photo and title open the
- * product page.
+ * Marketplace listing card: photo, price (or "Ask for price") with the
+ * negotiable note, title, short description, condition and warranty chips,
+ * free gift, Tap & Earn and a one-tap WhatsApp button. The photo and title
+ * open the product page.
  */
 export function ListingCard({ product, priority = false }: { product: Product; priority?: boolean }) {
   const title = productTitle(product);
@@ -57,11 +57,6 @@ export function ListingCard({ product, priority = false }: { product: Product; p
           {product.highlight ?? product.specs.join(" · ")}
         </p>
 
-        <p className="mt-2 flex items-center gap-1 text-[0.72rem] text-ink-muted">
-          <MapPin className="size-3.5 shrink-0" aria-hidden="true" />
-          {shopArea}
-        </p>
-
         <div className="mt-2 flex flex-wrap gap-1">
           <ConditionChip product={product} />
           <WarrantyChip product={product} />
@@ -70,17 +65,16 @@ export function ListingCard({ product, priority = false }: { product: Product; p
         <GiftLine product={product} className="mt-2" />
         <AvailabilityNote product={product} className="mt-1" />
 
-        <div className="mt-auto pt-3">
-          <a
-            href={whatsappHref(productMessage(product))}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${soldOut ? "Ask about restock for" : "Buy"} ${title} on WhatsApp`}
+        <div className="mt-auto flex flex-col gap-2 pt-3">
+          <TapEarnButton productId={product.id} title={title} category={product.category} />
+          <WhatsAppBuyLink
+            message={productMessage(product)}
+            ariaLabel={`${soldOut ? "Ask about restock for" : "Buy"} ${title} on WhatsApp`}
             className="flex h-10 w-full items-center justify-center gap-1.5 rounded-lg bg-whatsapp px-2 text-[0.78rem] font-bold whitespace-nowrap text-whatsapp-ink transition-[background-color,transform] duration-200 hover:bg-whatsapp-hover active:scale-[0.97] sm:text-sm"
           >
             <WhatsAppIcon className="size-4 shrink-0" />
             {soldOut ? "Ask about restock" : "Buy on WhatsApp"}
-          </a>
+          </WhatsAppBuyLink>
         </div>
       </div>
     </article>

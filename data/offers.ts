@@ -1,4 +1,4 @@
-import type { CategoryId, Condition, Deal } from "@/types";
+import type { CategoryId, Condition, Deal, Product } from "@/types";
 
 /* -------------------------------------------------------------------------- */
 /*  Offers, bundles and warranty (from WaterKingsTech's brief)                 */
@@ -6,12 +6,41 @@ import type { CategoryId, Condition, Deal } from "@/types";
 
 /**
  * Warranty by condition. UK-used warranty confirmed on 9 November 2026.
- * `null` = not supplied yet, so no warranty badge is shown.
+ * `null` = period not supplied yet: the item shows "Warranty: ask us".
+ * A product's own `warranty` field overrides this.
  */
 export const warranty: Record<Condition, string | null> = {
   "uk-used": "3-month warranty",
   "brand-new": null,
 };
+
+export const warrantyPending = "Warranty: ask us";
+
+export function warrantyFor(product: Product): string | null {
+  return product.warranty ?? warranty[product.condition];
+}
+
+/**
+ * Negotiation (client brief, 9 Nov 2026: "allow room for negotiation").
+ * Every item is negotiable unless a product sets `negotiable: false`.
+ */
+export const negotiableByDefault = true;
+
+export function isNegotiable(product: Product): boolean {
+  return product.negotiable ?? negotiableByDefault;
+}
+
+/** Swap / trade-in (client brief, 9 Nov 2026). Terms and valuation are not supplied yet. */
+export const swap = {
+  categories: ["smartphones", "laptops"] as CategoryId[],
+  deviceTypes: ["Phone", "Laptop"],
+  conditions: ["Like new", "Good (light scratches)", "Fair (visible wear)", "Faulty or cracked"],
+  terms: null as string | null,
+};
+
+export function isSwappable(product: Product): boolean {
+  return swap.categories.includes(product.category);
+}
 
 /** Free gift that comes with every purchase in a category. */
 export const giftByCategory: Partial<Record<CategoryId, string>> = {
@@ -43,9 +72,11 @@ export const bundles = [
 export const tickerMessages = [
   "Buy a laptop & save up to 40% + free laptop bag",
   "Buy a phone & get a free case + screen protector",
+  "Prices are negotiable — make us an offer",
+  "Swap your old phone or laptop",
   "UK used devices come with a 3-month warranty",
   "Buy now, pay in installments",
-  "Refer a buyer & earn GH₵ 50 – GH₵ 400",
+  "Tap & Earn: share an item, earn GH₵ 50 – GH₵ 400",
   "Visit us: Circle Mall, Blue Gate — Gate 2 Exit",
 ];
 

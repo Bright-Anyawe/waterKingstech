@@ -63,8 +63,13 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/referral-installment#referral" className={linkClass}>
-                Referral commission
+              <Link href="/tap-and-earn" className={linkClass}>
+                Tap &amp; Earn
+              </Link>
+            </li>
+            <li>
+              <Link href="/swap" className={linkClass}>
+                Swap &amp; upgrade
               </Link>
             </li>
             <li>

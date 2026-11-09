@@ -74,6 +74,12 @@ export type Product = {
   specs: string[];
   /** Price in Ghana cedis. `null` shows "Ask for price". */
   price: number | null;
+  /** Previous price in cedis — shown crossed out, with the % saved, when it is higher than `price`. */
+  wasPrice?: number;
+  /** Overrides the warranty for this item, e.g. "6-month warranty". Default comes from data/offers.ts. */
+  warranty?: string;
+  /** Set to false for a fixed-price item. Default comes from data/offers.ts (negotiable). */
+  negotiable?: boolean;
   availability: Availability;
   image: ImageAsset;
   /** Optional promotional tag */

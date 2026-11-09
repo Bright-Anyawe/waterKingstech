@@ -19,7 +19,33 @@ export const whatsappMessages = {
   catalog: `${greeting} I'm looking for a device that I didn't see on your website. Can you help?`,
   deals: `${greeting} I saw your deals on the website. Which offers are available today?`,
   corporate: `${greeting} I'm buying for an organisation and would like a bulk quotation.`,
+  swap: `${greeting} I'd like to swap my old device for another one. How does it work?`,
+  tapEarn: `${greeting} I'd like to join Tap & Earn and earn commission for buyers I send to you.`,
 } as const;
+
+/** Appended to a buyer's message when they arrived through a Tap & Earn link. */
+export function withReferrer(message: string, referrer: string | null): string {
+  return referrer ? `${message}
+
+Referred by: ${referrer} (Tap & Earn)` : message;
+}
+
+export function offerMessage(product: Product, amount: string, note?: string): string {
+  const title = `${productTitle(product)} (${conditionLabel[product.condition]})`;
+  const base = `${greeting} I'm interested in the ${title} on your website. I'd like to offer ${amount}. Can we agree on that?`;
+  return note ? `${base}
+
+${note}` : base;
+}
+
+export function discountMessage(product: Product): string {
+  const title = `${productTitle(product)} (${conditionLabel[product.condition]})`;
+  return `${greeting} I'm interested in the ${title} on your website. Is there any discount you can give me on it?`;
+}
+
+export function swapForMessage(product: Product): string {
+  return `${greeting} I'd like to swap my old device for the ${productTitle(product)} on your website. How much would I need to add?`;
+}
 
 export function productMessage(product: Product): string {
   const title = `${productTitle(product)} (${conditionLabel[product.condition]})`;

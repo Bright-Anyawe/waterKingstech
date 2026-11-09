@@ -129,8 +129,8 @@ export function ReferralPanel({ compact = false, className }: { compact?: boolea
             Join on WhatsApp
           </ButtonLink>
           {compact ? (
-            <Link href="/referral-installment#referral" className="group inline-flex items-center gap-1 text-sm font-semibold text-royal-700">
-              All commission tiers
+            <Link href="/tap-and-earn" className="group inline-flex items-center gap-1 text-sm font-semibold text-royal-700">
+              How Tap &amp; Earn works
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </Link>
           ) : null}

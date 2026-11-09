@@ -12,7 +12,9 @@ It works like a marketplace (modelled on Jiji): a blue search band, a category r
 | `/shop`, `/shop/phones`, `/shop/laptops`, `/shop/accessories` | Listings with search, category / type / condition / deal filters and sorting. Filters live in the URL, so a filtered page can be shared. |
 | `/uk-used`, `/brand-new` | Condition portals: UK Used (tested, 3-month warranty) and Brand New (fresh in box) |
 | `/deals` | Every product with a deal tag, plus the bundle banners |
-| `/product/<id>` | Product page: photo, price, badges, free gift, Buy on WhatsApp, buying tips, similar items |
+| `/product/<id>` | Product page: photo, price, warranty, free gift, Buy on WhatsApp, Make an offer / Ask for a discount, Swap for this, Tap & Earn, similar items |
+| `/swap` | Swap & upgrade: a trade-in request form (phones and laptops) that opens WhatsApp or email |
+| `/tap-and-earn` | Tap & Earn: how sharing earns commission, plus a form to set your name and register on WhatsApp |
 | `/repairs` | Repair & diagnostic hub with turnaround times |
 | `/referral-installment` | Installment plans and referral commission tiers |
 | `/corporate` | Corporate (B2B) portal with a bulk-quote form that opens WhatsApp or email |
@@ -56,12 +58,20 @@ All content lives in `/data`, so you rarely need to touch the components.
 - **Prices:** set `price` in cedis (for example `12500`). `null` shows "Ask for price".
 - **Condition:** `"uk-used"` shows the 3-month warranty badge; `"brand-new"` shows "Factory sealed". Add `grade` for UK used devices, for example `"Excellent"`.
 - **Deal tags:** `deal: { type: "save", percent: 40 }`, `{ type: "hot" }` or `{ type: "flash" }` (Weekend flash sale). Remove `deal` to drop the tag.
+- **Negotiation:** every item shows "Negotiable" and a Make an offer box. Set `negotiable: false` on a product for a fixed price, or change `negotiableByDefault` in `data/offers.ts`.
+- **Discounts:** besides deal tags, set `wasPrice` above `price` and the card shows the old price crossed out with the % saved.
+- **Warranty:** UK used items show the 3-month warranty and brand-new items show "Warranty: ask us" until a period is set in `data/offers.ts`. A product's own `warranty` (e.g. `"6-month warranty"`) overrides both.
+- **Swap:** `swap` in `data/offers.ts` sets which categories can be swapped, the device types and conditions in the form, and the swap terms.
 - **Stock:** set `availability` to `in-stock`, `limited-stock`, `out-of-stock` or `on-request`.
 - **Top picks:** `featured: true` puts a product first in "Trending deals". `highlight` is its one-line description.
 - **Real photos:** put files in `public/images/...` and use for example `src: "/images/products/iphone-15-pro.jpg"`.
 - **Going live with real stock:** set `catalogIsSample` to `false` in `data/products.ts` to remove the "Sample listings" notice.
 
 A value of `null` means "not supplied yet". The site shows a dashed amber placeholder for it, so nothing unconfirmed is ever presented as real.
+
+### Tap & Earn
+
+Every item has a **Tap & Earn** button. The first time, it asks for the sharer's name (remembered on that device), then shares the item to WhatsApp or the phone's share sheet with a link like `/product/<id>?ref=Ama`. A visitor who arrives through that link has "Referred by: Ama (Tap & Earn)" added to their Buy, offer and swap WhatsApp messages, so the shop knows who to pay. Commission amounts come from `data/programs.ts`.
 
 ### Logo
 
@@ -76,8 +86,9 @@ The client's original file is `public/brand/logo-original.png`. Its "TECH" and t
 - [ ] Shop photos: front and inside
 - [ ] Genuine customer reviews, shared with permission
 - [ ] Installment plan terms: guidelines, eligibility, required documents, payment conditions
-- [ ] Referral payout terms, such as how and when commission is paid
-- [ ] Warranty period for brand-new devices, if any
+- [ ] Referral / Tap & Earn payout terms, such as how and when commission is paid
+- [ ] Warranty period for brand-new devices (they show "Warranty: ask us" until then)
+- [ ] Swap terms: which devices are accepted and how they are valued
 - [ ] Corporate bulk discount rates or terms, if they should be shown
 - [ ] Logo with a transparent background, or an SVG (optional)
 - [ ] Social media accounts, if any

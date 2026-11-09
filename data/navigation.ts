@@ -10,8 +10,10 @@ export const navItems: NavItem[] = [
   { label: "Accessories", href: "/shop/accessories" },
   { label: "UK Used", href: "/uk-used" },
   { label: "Brand New", href: "/brand-new" },
+  { label: "Swap", href: "/swap" },
   { label: "Repairs", href: "/repairs" },
-  { label: "Installment & Referral", href: "/referral-installment" },
+  { label: "Installment", href: "/referral-installment" },
+  { label: "Tap & Earn", href: "/tap-and-earn" },
   { label: "Visit the shop", href: "/visit" },
 ];
 

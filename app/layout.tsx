@@ -6,6 +6,7 @@ import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import { PromoTicker } from "@/components/layout/PromoTicker";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { MotionProvider } from "@/components/providers/MotionProvider";
+import { ReferralCapture } from "@/components/referral/ReferralCapture";
 import { business } from "@/data/business";
 import { siteUrl } from "@/lib/site";
 import { localBusinessJsonLd, toJsonLd } from "@/lib/structured-data";
@@ -105,6 +106,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Footer />
           <FloatingWhatsApp />
           <MobileActionBar />
+          <ReferralCapture />
         </MotionProvider>
       </body>
     </html>

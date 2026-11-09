@@ -1,10 +1,14 @@
-import { CalendarClock, Gift, Mail, MapPin, Navigation, Phone, ShieldCheck } from "lucide-react";
+import { ArrowLeftRight, CalendarClock, Gift, Mail, MapPin, Navigation, Phone, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { OfferBox } from "@/components/products/OfferBox";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { AssuranceChip, AvailabilityNote, ConditionChip, DealTag, Price, WarrantyChip } from "@/components/products/ProductBits";
+import { ReferredByNote } from "@/components/referral/ReferredByNote";
+import { TapEarnButton } from "@/components/referral/TapEarnButton";
+import { WhatsAppBuyLink } from "@/components/referral/WhatsAppBuyLink";
 import { ButtonLink } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Pending } from "@/components/ui/Pending";
@@ -12,7 +16,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { business } from "@/data/business";
 import { getCategory, getSubcategoryLabel } from "@/data/categories";
-import { conditionLabel, giftByCategory, warranty } from "@/data/offers";
+import { conditionLabel, giftByCategory, isNegotiable, isSwappable, warrantyFor, warrantyPending } from "@/data/offers";
 import { catalogIsSample, getProduct, products } from "@/data/products";
 import { callHref, directionsHref, emailHref, productMessage, productTitle, whatsappHref, whatsappMessages } from "@/lib/contact-links";
 
@@ -43,7 +47,7 @@ export default async function ProductPage({ params }: PageProps<"/product/[id]">
   const category = getCategory(product.category);
   const title = productTitle(product);
   const gift = giftByCategory[product.category];
-  const productWarranty = warranty[product.condition];
+  const productWarranty = warrantyFor(product);
   const mail = emailHref(`Enquiry: ${title}`, productMessage(product));
   const similar = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 4);
 
@@ -53,6 +57,9 @@ export default async function ProductPage({ params }: PageProps<"/product/[id]">
     ["Condition", conditionLabel[product.condition]],
     ...(product.grade ? ([["Grade", product.grade]] as [string, string][]) : []),
     ...(product.variant ? ([["Variant", product.variant]] as [string, string][]) : []),
+    ["Warranty", productWarranty ?? warrantyPending],
+    ["Price", isNegotiable(product) ? "Negotiable" : "Fixed"],
+    ...(isSwappable(product) ? ([["Swap", "Accepted — trade in your old device"]] as [string, string][]) : []),
   ];
 
   return (
@@ -79,7 +86,7 @@ export default async function ProductPage({ params }: PageProps<"/product/[id]">
             {product.deal ? <DealTag deal={product.deal} className="absolute top-3 left-3 text-[0.78rem]" /> : null}
           </div>
 
-          <section aria-labelledby="details-title" className="order-3 rounded-xl border border-ice-200 bg-white p-5">
+          <section aria-labelledby="details-title" className="order-4 rounded-xl border border-ice-200 bg-white p-5">
             <h2 id="details-title" className="font-display text-lg font-bold text-ink">
               Details
             </h2>
@@ -132,9 +139,13 @@ export default async function ProductPage({ params }: PageProps<"/product/[id]">
             ) : null}
 
             <div className="mt-4 flex flex-col gap-2">
-              <ButtonLink href={whatsappHref(productMessage(product))} variant="whatsapp" size="lg" icon={<WhatsAppIcon />}>
+              <WhatsAppBuyLink
+                message={productMessage(product)}
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-whatsapp px-6 text-[0.95rem] font-semibold text-whatsapp-ink shadow-[0_6px_16px_-8px_rgb(37_211_102/0.8)] transition-colors hover:bg-whatsapp-hover active:scale-[0.97]"
+              >
+                <WhatsAppIcon className="size-5" />
                 {product.availability === "out-of-stock" ? "Ask about restock" : "Buy on WhatsApp"}
-              </ButtonLink>
+              </WhatsAppBuyLink>
               <div className="grid grid-cols-2 gap-2">
                 <ButtonLink href={callHref} variant="outline" icon={<Phone />}>
                   Call
@@ -150,9 +161,15 @@ export default async function ProductPage({ params }: PageProps<"/product/[id]">
                 )}
               </div>
             </div>
+            <ReferredByNote className="mt-3" />
+            <TapEarnButton productId={product.id} title={title} category={product.category} variant="block" className="mt-4 border-t border-ice-200 pt-4" />
           </section>
 
-          <section aria-labelledby="tips-title" className="order-4 rounded-xl border border-ice-200 bg-white p-5">
+          <div className="order-3">
+            <OfferBox product={product} />
+          </div>
+
+          <section aria-labelledby="tips-title" className="order-5 rounded-xl border border-ice-200 bg-white p-5">
             <h2 id="tips-title" className="font-display text-base font-bold text-ink">
               Buying tips
             </h2>
@@ -171,10 +188,20 @@ export default async function ProductPage({ params }: PageProps<"/product/[id]">
                   .
                 </span>
               </li>
-              {productWarranty ? (
+              <li className="flex gap-2.5">
+                <ShieldCheck className="mt-0.5 size-4 shrink-0 text-royal-600" aria-hidden="true" />
+                {productWarranty ? <>This item comes with a {productWarranty.toLowerCase()}.</> : <>Ask us about the warranty on this item.</>}
+              </li>
+              {isSwappable(product) ? (
                 <li className="flex gap-2.5">
-                  <ShieldCheck className="mt-0.5 size-4 shrink-0 text-royal-600" aria-hidden="true" />
-                  UK used devices come with a {productWarranty.toLowerCase()}.
+                  <ArrowLeftRight className="mt-0.5 size-4 shrink-0 text-royal-600" aria-hidden="true" />
+                  <span>
+                    Have an old phone or laptop?{" "}
+                    <Link href={`/swap?want=${product.id}`} className="font-semibold text-royal-700 hover:underline">
+                      Swap it for this
+                    </Link>
+                    .
+                  </span>
                 </li>
               ) : null}
               {product.condition === "uk-used" ? (

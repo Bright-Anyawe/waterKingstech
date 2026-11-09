@@ -35,8 +35,12 @@ A real shop at Circle Mall, Tip Toe Lane (Blue Gate, Gate 2 Exit), Accra. It sel
 - Deal tags per product: "SAVE n%", "HOT DEAL", "WEEKEND FLASH SALE".
 - Bundle headliners (client-supplied copy): "BUY A LAPTOP & SAVE UP TO 40% + FREE LAPTOP BAG" and "BUY A PHONE & GET FREE CASE + SCREEN PROTECTOR".
 - UK-used devices carry a 3-month warranty (confirmed 2026-11-09). No warranty period has been supplied for brand-new devices.
-- The corporate quote form has no backend; it composes a WhatsApp message or an email.
-- Undecided: repair turnaround times, real stock and prices, opening hours, installment terms, referral payout terms, exact map pin.
+- Negotiation (client, 2026-11-09): every item is marked negotiable, with a Make an offer box and Ask for a discount; a product can opt out.
+- Swap / trade-in (client, 2026-11-09): phones and laptops; a swap request form. Swap terms and valuation are not supplied.
+- Tap & Earn (client, 2026-11-09): one-tap sharing of any item with the sharer's name in the link; buyers arriving through it have the sharer named in their WhatsApp order. It pays the existing referral commission (GH₵ 50 – GH₵ 400).
+- Every item shows a warranty: 3 months on UK used; brand new shows "Warranty: ask us" until the client confirms a period.
+- The corporate quote, swap and offer forms have no backend; they compose a WhatsApp message or an email.
+- Undecided: repair turnaround times, real stock and prices, opening hours, installment terms, referral payout terms, swap terms, brand-new warranty period, exact map pin.
 
 ## Brand Commitments
 

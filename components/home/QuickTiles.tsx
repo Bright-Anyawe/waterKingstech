@@ -1,4 +1,4 @@
-import { Building2, CalendarClock, Coins, type LucideIcon, MapPin } from "lucide-react";
+import { ArrowLeftRight, Building2, CalendarClock, Coins, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { referral } from "@/data/programs";
 import { formatPrice } from "@/lib/format";
@@ -8,6 +8,13 @@ type Tile = { href: string; label: string; meta: string; icon: LucideIcon; tone:
 
 const tiles: Tile[] = [
   {
+    href: "/swap",
+    label: "Swap & upgrade",
+    meta: "Trade in your old device",
+    icon: ArrowLeftRight,
+    tone: "border-gift/25 bg-gift-bg [&_svg]:text-gift",
+  },
+  {
     href: "/referral-installment#installment",
     label: "Buy on installment",
     meta: "UK used devices",
@@ -15,8 +22,8 @@ const tiles: Tile[] = [
     tone: "border-royal-200 bg-royal-50 [&_svg]:text-royal-600",
   },
   {
-    href: "/referral-installment#referral",
-    label: "Refer & earn",
+    href: "/tap-and-earn",
+    label: "Tap & Earn",
     meta: `${formatPrice(referral.commission.min)} – ${formatPrice(referral.commission.max)}`,
     icon: Coins,
     tone: "border-orange/40 bg-orange/10 [&_svg]:text-orange-strong",
@@ -27,13 +34,6 @@ const tiles: Tile[] = [
     meta: "Companies, schools, NGOs",
     icon: Building2,
     tone: "border-flash/25 bg-flash/[0.06] [&_svg]:text-flash",
-  },
-  {
-    href: "/visit",
-    label: "Visit the shop",
-    meta: "Circle Mall, Gate 2",
-    icon: MapPin,
-    tone: "border-gift/25 bg-gift-bg [&_svg]:text-gift",
   },
 ];
 

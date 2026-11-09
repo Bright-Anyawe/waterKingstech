@@ -1,5 +1,5 @@
-import { BadgeCheck, Flame, Gift, PackageCheck, ShieldCheck, Zap } from "lucide-react";
-import { conditionLabel, dealLabel, giftByCategory, warranty } from "@/data/offers";
+import { BadgeCheck, Flame, Gift, PackageCheck, ShieldCheck, ShieldQuestion, Zap } from "lucide-react";
+import { conditionLabel, dealLabel, giftByCategory, isNegotiable, warrantyFor, warrantyPending } from "@/data/offers";
 import { cn } from "@/lib/cn";
 import { availabilityLabel, formatPrice } from "@/lib/format";
 import type { Deal, Product } from "@/types";
@@ -43,9 +43,17 @@ export function ConditionChip({ product, className }: { product: Product; classN
   );
 }
 
+/** Every item shows its warranty; items whose period isn't confirmed say "Warranty: ask us". */
 export function WarrantyChip({ product, className }: { product: Product; className?: string }) {
-  const text = warranty[product.condition];
-  if (!text) return null;
+  const text = warrantyFor(product);
+  if (!text) {
+    return (
+      <span className={cn(chip, "bg-white text-royal-700 ring-1 ring-royal-200 ring-inset", className)}>
+        <ShieldQuestion className="size-3" aria-hidden="true" />
+        {warrantyPending}
+      </span>
+    );
+  }
   return (
     <span className={cn(chip, "bg-royal-600 text-white", className)}>
       <ShieldCheck className="size-3" aria-hidden="true" />
@@ -78,24 +86,50 @@ export function AssuranceChip({ product, className }: { product: Product; classN
 
 /* ---------------------------------- Price ---------------------------------- */
 
-export function Price({ product, size = "md" }: { product: Product; size?: "md" | "lg" }) {
-  const className = cn(
-    "font-display font-extrabold tracking-[-0.02em] text-royal-600 tabular-nums",
-    size === "lg" ? "text-3xl" : "text-[1.05rem] sm:text-lg",
+/** "Negotiable", as marketplaces print it beside the price. */
+function NegotiableNote({ product, size }: { product: Product; size: "md" | "lg" }) {
+  if (!isNegotiable(product)) return null;
+  return (
+    <span className={cn("font-sans font-semibold text-ink-muted", size === "lg" ? "text-sm" : "text-[0.72rem]")}>
+      Negotiable
+    </span>
   );
+}
+
+export function Price({ product, size = "md" }: { product: Product; size?: "md" | "lg" }) {
   if (product.price === null) {
     // No price supplied: a quiet line under the name, so the product name leads.
     return (
-      <p className={cn("mt-0.5 font-semibold text-royal-700", size === "lg" ? "text-base" : "text-[0.78rem] sm:text-[0.82rem]")}>
-        Ask for price
-        <span className="sr-only"> — price on request</span>
+      <p className={cn("mt-0.5 flex flex-wrap items-baseline gap-x-1.5 font-semibold text-royal-700", size === "lg" ? "text-base" : "text-[0.78rem] sm:text-[0.82rem]")}>
+        <span>
+          Ask for price
+          <span className="sr-only"> — price on request</span>
+        </span>
+        {isNegotiable(product) ? <span aria-hidden="true" className="text-ink-muted">·</span> : null}
+        <NegotiableNote product={product} size={size} />
       </p>
     );
   }
+
+  const was = product.wasPrice && product.wasPrice > product.price ? product.wasPrice : null;
+  const percentOff = was ? Math.round((1 - product.price / was) * 100) : 0;
+
   return (
-    <p className={className}>
-      <span className="sr-only">Price: </span>
-      {formatPrice(product.price)}
+    <p className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+      <span className={cn("font-display font-extrabold tracking-[-0.02em] text-royal-600 tabular-nums", size === "lg" ? "text-3xl" : "text-[1.05rem] sm:text-lg")}>
+        <span className="sr-only">Price: </span>
+        {formatPrice(product.price)}
+      </span>
+      {was ? (
+        <>
+          <s className={cn("text-ink-muted tabular-nums", size === "lg" ? "text-base" : "text-[0.75rem]")}>
+            <span className="sr-only">was </span>
+            {formatPrice(was)}
+          </s>
+          <span className="rounded bg-save px-1 text-[0.68rem] font-bold text-white">-{percentOff}%</span>
+        </>
+      ) : null}
+      <NegotiableNote product={product} size={size} />
     </p>
   );
 }

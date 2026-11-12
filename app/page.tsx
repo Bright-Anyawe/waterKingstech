@@ -12,6 +12,7 @@ import { VisitShop } from "@/components/sections/VisitShop";
 import { Pending } from "@/components/ui/Pending";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { catalogIsSample, products } from "@/data/products";
+import { testimonials } from "@/data/testimonials";
 import { applyFilters, emptyFilters } from "@/lib/catalog";
 
 /** Retail (B2C) home: search band, category rail, bundles and trending deals. */
@@ -79,7 +80,11 @@ export default function HomePage() {
         </section>
 
         <section aria-labelledby="reviews-title" className="mt-12">
-          <SectionHeader id="reviews-title" title="What customers say" action={{ href: "/visit#reviews", label: "All reviews" }} />
+          <SectionHeader
+            id="reviews-title"
+            title="Verified customer reviews"
+            action={testimonials.length > 3 ? { href: "/visit#reviews", label: "All reviews" } : undefined}
+          />
           <Reviews className="mt-4" />
         </section>
       </div>

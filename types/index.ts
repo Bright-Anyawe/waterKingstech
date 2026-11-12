@@ -112,17 +112,37 @@ export type RepairService = {
 
 /* -------------------------------- Testimonials ------------------------------ */
 
+/**
+ * How the shop confirmed a reviewer really bought or repaired with them.
+ * - "whatsapp-order": matched to the customer's WhatsApp order chat
+ * - "shop-receipt": matched to an in-store sale or repair receipt
+ * - "google": posted publicly on the shop's Google Business profile (give `url`)
+ */
+export type ReviewVerification = "whatsapp-order" | "shop-receipt" | "google";
+
 export type Testimonial = {
   id: string;
+  /** As the customer agreed to be shown, e.g. "Kofi A." */
   name: string;
-  /** e.g. "Bought an iPhone 15 Pro" or "Laptop screen repair" */
+  /** What they bought or had fixed, e.g. "Bought an iPhone 15 Pro" or "Laptop screen repair" */
   context?: string;
   quote: string;
+  /** Month of the purchase or review, "YYYY-MM", e.g. "2026-11" */
+  date?: string;
+  /** e.g. "Accra" */
+  location?: string;
   photo?: ImageAsset;
   /** 1–5. Only set when the customer genuinely gave a rating. */
   rating?: number;
-  /** Placeholder content is visibly labelled on the site. */
-  isPlaceholder?: boolean;
+  /**
+   * Only set after the shop has matched the review to a real order or repair.
+   * Reviews without it are shown without the Verified buyer badge.
+   */
+  verification?: {
+    method: ReviewVerification;
+    /** Public link to the original, e.g. the Google review */
+    url?: string;
+  };
 };
 
 /* ------------------------------ Business details ---------------------------- */

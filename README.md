@@ -51,7 +51,7 @@ All content lives in `/data`, so you rarely need to touch the components.
 | `data/programs.ts` | Installment plan details and referral commissions |
 | `data/corporate.ts` | Corporate portal: audiences, offers, quote-form options, steps |
 | `data/business.ts` | Address, map, opening hours, shop photos, taglines |
-| `data/testimonials.ts` | Customer reviews |
+| `data/testimonials.ts` | Verified customer reviews and the Google review links (see the comment at the top for how to add one) |
 | `data/navigation.ts` | Header category row and the Retail / Corporate switch |
 | `data/hero.ts` | Background video in the search band (files in `public/videos`) |
 
@@ -84,7 +84,7 @@ The client's original file is `public/brand/logo-original.png`. Its "TECH" and t
 - [ ] Opening hours
 - [ ] Exact Google Maps pin or listing link. The map currently points to Tip Toe Lane, next to Circle Mall.
 - [ ] Shop photos: front and inside
-- [ ] Genuine customer reviews, shared with permission
+- [ ] Genuine customer reviews, shared with permission. Mark each one verified only after matching it to a WhatsApp order, shop receipt or Google review; the "Leave a review" button asks customers for exactly that information
 - [ ] Installment plan terms: guidelines, eligibility, required documents, payment conditions
 - [ ] Referral / Tap & Earn payout terms, such as how and when commission is paid
 - [ ] Warranty period for brand-new devices (they show "Warranty: ask us" until then)

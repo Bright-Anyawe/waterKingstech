@@ -15,7 +15,14 @@ export const whatsappMessages = {
   installment: `${greeting} I'm interested in buying a device on installment. Please send me the requirements and available options.`,
   referral: `${greeting} I'd like to join your referral program and earn commission.`,
   visit: `${greeting} I'd like to visit your shop. Could you share directions?`,
-  review: `${greeting} I'd like to share a review of my experience with you.`,
+  // Structured so the shop can match the review to the buyer's order before publishing it.
+  review: `${greeting} I'd like to leave a review for your website.
+
+What I bought or had repaired:
+When (month):
+My review:
+Rating out of 5 (optional):
+Name to show (e.g. Kofi A.):`,
   catalog: `${greeting} I'm looking for a device that I didn't see on your website. Can you help?`,
   deals: `${greeting} I saw your deals on the website. Which offers are available today?`,
   corporate: `${greeting} I'm buying for an organisation and would like a bulk quotation.`,

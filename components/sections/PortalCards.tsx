@@ -40,7 +40,7 @@ export function PortalCards({ className }: { className?: string }) {
           </li>
           <li className="flex items-center gap-1.5">
             <BadgeCheck className="size-4 text-cyan-200" aria-hidden="true" />
-            Installment available
+            Phones &amp; MacBooks on installment
           </li>
         </ul>
         <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold">
@@ -72,6 +72,10 @@ export function PortalCards({ className }: { className?: string }) {
           <li className="flex items-center gap-1.5">
             <BadgeCheck className="size-4 text-gift" aria-hidden="true" />
             Free gift with phones &amp; laptops
+          </li>
+          <li className="flex items-center gap-1.5">
+            <BadgeCheck className="size-4 text-gift" aria-hidden="true" />
+            Phones &amp; MacBooks on installment
           </li>
         </ul>
         <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-royal-700">

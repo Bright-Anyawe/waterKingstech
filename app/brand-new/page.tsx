@@ -28,7 +28,7 @@ export default function BrandNewPage() {
               Fresh in box
             </span>
           }
-          points={["Factory sealed", "Free laptop bag with laptops", "Free case + screen protector with phones"]}
+          points={["Factory sealed", "Free laptop bag with laptops", "Free case + screen protector with phones", "Phones & MacBooks on installment"]}
         />
       </div>
       <div className="mt-6">

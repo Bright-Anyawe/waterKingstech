@@ -17,7 +17,7 @@ const tiles: Tile[] = [
   {
     href: "/referral-installment#installment",
     label: "Buy on installment",
-    meta: "UK used devices",
+    meta: "Phones, MacBooks & iPads",
     icon: CalendarClock,
     tone: "border-royal-200 bg-royal-50 [&_svg]:text-royal-600",
   },

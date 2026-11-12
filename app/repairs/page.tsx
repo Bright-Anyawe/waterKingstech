@@ -12,7 +12,7 @@ import { callHref, whatsappHref, whatsappMessages } from "@/lib/contact-links";
 export const metadata: Metadata = {
   title: "Phone & laptop repairs in Accra",
   description:
-    "Screen replacement, battery swap, SSD upgrades, board repair and diagnostics for phones and laptops at WaterKingsTech, Circle Mall, Accra.",
+    "Screen replacement, battery swap, SSD / HDD and RAM upgrades, board repair and diagnostics for phones and laptops at WaterKingsTech, Circle Mall, Accra.",
   alternates: { canonical: "/repairs" },
 };
 
@@ -34,7 +34,7 @@ export default function RepairsPage() {
           title="Repair & diagnostic hub"
           lead="Cracked screen, weak battery, slow laptop or a deeper fault? Get your phone or laptop fixed at the shop."
           icon={Wrench}
-          points={["Phones & laptops", "Screens & batteries", "SSD upgrades", "Board-level repair"]}
+          points={["Phones & laptops", "Screens & batteries", "SSD, HDD & RAM upgrades", "Board-level repair"]}
         >
           <div className="flex flex-wrap gap-2">
             <ButtonLink href={whatsappHref(whatsappMessages.repair)} variant="whatsapp" icon={<WhatsAppIcon />}>

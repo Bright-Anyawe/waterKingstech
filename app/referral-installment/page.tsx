@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Installment plans & referral commission",
   description:
-    "Buy UK used phones, laptops and accessories on installment, or earn GH₵ 50 – GH₵ 400 commission for every buyer you refer to WaterKingsTech.",
+    "Buy any phone, a MacBook or an iPad on installment, or earn GH₵ 50 – GH₵ 400 commission for every buyer you refer to WaterKingsTech.",
   alternates: { canonical: "/referral-installment" },
 };
 

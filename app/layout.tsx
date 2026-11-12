@@ -34,7 +34,7 @@ const montserrat = Montserrat({
 
 const title = `${business.name} — Phones, Laptops, Accessories & Repairs in Accra, Ghana`;
 const description =
-  "Shop UK used and brand new iPhones, Samsung phones, laptops, MacBooks and accessories at Circle Mall, Accra. Free gifts with every phone and laptop, 3-month warranty on UK used devices, installment plans, repairs and corporate bulk quotes.";
+  "Shop UK used and brand new iPhones, Samsung phones, laptops, MacBooks and accessories at Circle Mall, Accra — open 24/7. Free gifts with every phone and laptop, 3-month warranty on UK used devices, installment on phones and MacBooks, repairs and corporate bulk quotes.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

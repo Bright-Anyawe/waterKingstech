@@ -96,6 +96,7 @@ export type RepairIcon =
   | "screen"
   | "battery"
   | "ssd"
+  | "ram"
   | "board"
   | "phone-diagnostics"
   | "laptop-diagnostics"
@@ -152,6 +153,8 @@ export type OpeningHours = {
   days: string;
   /** e.g. "8:00am – 7:00pm" or "Closed" */
   hours: string;
+  /** The same hours in schema.org format for search engines, e.g. "Mo-Sa 08:00-19:00" */
+  schema?: string;
 };
 
 export type WhatsAppNumber = {

@@ -23,9 +23,16 @@ export const repairServices: RepairService[] = [
   },
   {
     id: "ssd-upgrade",
-    name: "SSD upgrade",
-    description: "Make a slow laptop fast again, or add more storage.",
+    name: "SSD / HDD upgrade",
+    description: "Make a slow laptop fast again with an SSD, or add more storage with an SSD or hard drive.",
     icon: "ssd",
+    turnaround: null,
+  },
+  {
+    id: "ram-upgrade",
+    name: "RAM upgrade",
+    description: "Laptop freezing with a few apps or tabs open? Add more memory so it keeps up.",
+    icon: "ram",
     turnaround: null,
   },
   {

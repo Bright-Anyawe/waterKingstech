@@ -75,7 +75,8 @@ export const tickerMessages = [
   "Prices are negotiable — make us an offer",
   "Swap your old phone or laptop",
   "UK used devices come with a 3-month warranty",
-  "Buy now, pay in installments",
+  "Phones, MacBooks & iPads on installment",
+  "Open 24/7 — every day",
   "Tap & Earn: share an item, earn GH₵ 50 – GH₵ 400",
   "Visit us: Circle Mall, Blue Gate — Gate 2 Exit",
 ];

@@ -18,6 +18,7 @@ import { business } from "@/data/business";
 import { getCategory, getSubcategoryLabel } from "@/data/categories";
 import { conditionLabel, giftByCategory, isNegotiable, isSwappable, warrantyFor, warrantyPending } from "@/data/offers";
 import { catalogIsSample, getProduct, products } from "@/data/products";
+import { isInstallmentEligible } from "@/data/programs";
 import { callHref, directionsHref, emailHref, productMessage, productTitle, whatsappHref, whatsappMessages } from "@/lib/contact-links";
 
 export const dynamicParams = false;
@@ -204,7 +205,7 @@ export default async function ProductPage({ params }: PageProps<"/product/[id]">
                   </span>
                 </li>
               ) : null}
-              {product.condition === "uk-used" ? (
+              {isInstallmentEligible(product) ? (
                 <li className="flex gap-2.5">
                   <CalendarClock className="mt-0.5 size-4 shrink-0 text-royal-600" aria-hidden="true" />
                   <span>

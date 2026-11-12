@@ -1,4 +1,4 @@
-import type { InfoGroup } from "@/types";
+import type { InfoGroup, Product } from "@/types";
 
 /* -------------------------------------------------------------------------- */
 /*  Installment purchases                                                     */
@@ -7,17 +7,16 @@ import type { InfoGroup } from "@/types";
 /* -------------------------------------------------------------------------- */
 
 export const installment = {
-  /** From the installment flyer: UK-used phones, laptops and accessories. */
-  eligibleItems: [
-    "Smartphones (all models)",
-    "Laptops (all models)",
-    "Accessories (all types)",
-    "Phone + accessory bundles",
-    "Laptop + accessory bundles",
-    "Premium flagship devices",
-  ],
+  /**
+   * Confirmed by WaterKingsTech (12 November 2026): every phone, UK used or
+   * brand new, plus MacBooks and iPads. Everything else is paid in full.
+   * Keep `isInstallmentEligible` below in step with this list.
+   */
+  eligibleItems: ["All phones — UK used & brand new", "MacBooks", "iPads"],
+  /** Shown under the list so buyers know what isn't covered. */
+  notEligible: "Other laptops and accessories are paid in full.",
   steps: [
-    { title: "Choose your device", body: "Pick a UK-used phone, laptop, accessory or bundle." },
+    { title: "Choose your device", body: "Pick any phone (UK used or brand new), a MacBook or an iPad." },
     { title: "Message us on WhatsApp", body: "Let us know you'd like to buy on installment." },
     { title: "Get the requirements", body: "We'll send the current requirements and available options." },
     { title: "Confirm your plan", body: "Agree the details with our team before anything is finalised." },
@@ -77,13 +76,17 @@ export const referral = {
     },
   ] as CommissionRange[],
 
-  /** Fixed commission when a referred customer takes a UK-used item on installment. */
+  /**
+   * Fixed commission when a referred customer buys on installment (amounts from
+   * the referral flyer). Only phones, MacBooks and iPads are sold on installment,
+   * so the flyer's "Laptops (all models)" row reads "MacBooks" and its
+   * accessories row is gone.
+   */
   installment: [
     { label: "Smartphones (all models)", amount: 100 },
-    { label: "Laptops (all models)", amount: 150 },
-    { label: "Accessories (all types)", amount: 50 },
+    { label: "MacBooks", amount: 150 },
     { label: "Phone + accessory bundle", amount: 150 },
-    { label: "Laptop + accessory bundle", amount: 200 },
+    { label: "MacBook + accessory bundle", amount: 200 },
     { label: "Premium devices (flagship)", amount: 200 },
   ],
 
@@ -104,4 +107,9 @@ export const referral = {
 export function maxCommissionFor(category: "smartphones" | "laptops" | "accessories"): number {
   const id = category === "smartphones" ? "phones" : category;
   return referral.purchase.find((row) => row.id === id)?.max ?? referral.commission.max;
+}
+
+/** Every phone (UK used or brand new) and every MacBook can be bought on installment. */
+export function isInstallmentEligible(product: Pick<Product, "category" | "subcategory">): boolean {
+  return product.category === "smartphones" || product.subcategory === "macbook";
 }

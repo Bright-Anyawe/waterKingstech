@@ -9,6 +9,8 @@ import { siteUrl } from "@/lib/site";
  */
 export function localBusinessJsonLd() {
   const { location, openingHours } = business;
+  // schema.org expects e.g. "Mo-Su 00:00-23:59", not the display text.
+  const openingHoursSchema = (openingHours ?? []).flatMap((row) => (row.schema ? [row.schema] : []));
 
   const address: Record<string, string> = {
     "@type": "PostalAddress",
@@ -33,7 +35,7 @@ export function localBusinessJsonLd() {
       ? { geo: { "@type": "GeoCoordinates", latitude: location.coordinates.lat, longitude: location.coordinates.lng } }
       : {}),
     ...(location.mapsUrl ? { hasMap: location.mapsUrl } : {}),
-    ...(openingHours ? { openingHours: openingHours.map((row) => `${row.days} ${row.hours}`) } : {}),
+    ...(openingHoursSchema.length ? { openingHours: openingHoursSchema } : {}),
     ...(contact.socials.length ? { sameAs: contact.socials.map((s) => s.href) } : {}),
     areaServed: { "@type": "Country", name: business.country },
     knowsAbout: ["Smartphones", "Laptops", "Computer accessories", "Phone repair", "Laptop repair"],

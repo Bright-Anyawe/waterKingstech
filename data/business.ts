@@ -45,7 +45,8 @@ export const business = {
   },
 
   /** e.g. [{ days: "Monday – Saturday", hours: "8:00am – 7:00pm" }, { days: "Sunday", hours: "Closed" }] */
-  openingHours: null as OpeningHours[] | null,
+  // Supplied by WaterKingsTech on 12 November 2026: the shop works 24/7.
+  openingHours: [{ days: "Every day", hours: "Open 24 hours", schema: "Mo-Su 00:00-23:59" }] as OpeningHours[] | null,
 
   /** Real photos of the shop front / interior. Add files to /public/images/shop. */
   shopPhotos: [] as ImageAsset[],

@@ -159,7 +159,7 @@ export function InstallmentPanel({ compact = false, className }: { compact?: boo
           Get the device now. Pay over time.
         </h2>
         <p className="mt-1.5 max-w-xl text-[0.92rem] text-white/85">
-          Installment plans on UK-used phones, laptops, accessories and bundles.
+          Installment plans on every phone, UK used or brand new, plus MacBooks and iPads.
         </p>
       </div>
 
@@ -172,6 +172,7 @@ export function InstallmentPanel({ compact = false, className }: { compact?: boo
             </li>
           ))}
         </ul>
+        <p className="mt-2.5 text-[0.82rem] text-ink-muted">{installment.notEligible}</p>
 
         <h3 className="mt-6 text-sm font-bold text-ink">How it works</h3>
         <ol className="mt-3 grid gap-3 sm:grid-cols-2">

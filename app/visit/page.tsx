@@ -25,7 +25,7 @@ export default function VisitPage() {
           title="Visit the shop"
           lead={`Come and see devices in person, get a repair checked or ask about installment. We're at ${business.location.address} — use the ${business.location.landmark}.`}
           icon={MapPin}
-          points={["Live Google map", "See & test devices", "Repairs on site"]}
+          points={["Open 24/7", "Live Google map", "See & test devices", "Repairs on site"]}
         />
       </div>
 

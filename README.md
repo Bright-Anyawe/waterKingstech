@@ -80,12 +80,12 @@ The client's original file is `public/brand/logo-original.png`. Its "TECH" and t
 ### Still needed from WaterKingsTech
 
 - [ ] Real product list with prices and photos, and which products carry which deal tag. The current catalog is **sample inventory** with representative Unsplash photos and example deal tags.
-- [ ] Repair turnaround times (screens, batteries, SSD, board repair, diagnostics)
-- [ ] Opening hours
+- [ ] Repair turnaround times (screens, batteries, SSD / HDD, RAM, board repair, diagnostics)
+- [x] Opening hours (open 24/7)
 - [ ] Exact Google Maps pin or listing link. The map currently points to Tip Toe Lane, next to Circle Mall.
 - [ ] Shop photos: front and inside
 - [ ] Genuine customer reviews, shared with permission. Mark each one verified only after matching it to a WhatsApp order, shop receipt or Google review; the "Leave a review" button asks customers for exactly that information
-- [ ] Installment plan terms: guidelines, eligibility, required documents, payment conditions
+- [ ] Installment plan terms: guidelines, eligibility, required documents, payment conditions (which devices qualify is done: all phones, MacBooks, iPads)
 - [ ] Referral / Tap & Earn payout terms, such as how and when commission is paid
 - [ ] Warranty period for brand-new devices (they show "Warranty: ask us" until then)
 - [ ] Swap terms: which devices are accepted and how they are valued

@@ -5,6 +5,7 @@ import {
   HardDrive,
   LaptopMinimal,
   type LucideIcon,
+  MemoryStick,
   Smartphone,
   Stethoscope,
   Wrench,
@@ -14,12 +15,14 @@ import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { repairServices } from "@/data/repairs";
 import { cn } from "@/lib/cn";
 import { repairMessage, whatsappHref } from "@/lib/contact-links";
+import { inSentence } from "@/lib/format";
 import type { RepairIcon } from "@/types";
 
 export const repairIcons: Record<RepairIcon, LucideIcon> = {
   screen: Smartphone,
   battery: BatteryCharging,
   ssd: HardDrive,
+  ram: MemoryStick,
   board: Cpu,
   "phone-diagnostics": Stethoscope,
   "laptop-diagnostics": LaptopMinimal,
@@ -65,7 +68,7 @@ export function RepairList({ limit, className }: { limit?: number; className?: s
                 href={whatsappHref(repairMessage(service))}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Ask about ${service.name.toLowerCase()} on WhatsApp`}
+                aria-label={`Ask about ${inSentence(service.name)} on WhatsApp`}
                 className="col-start-2 inline-flex h-9 w-fit items-center gap-1.5 rounded-lg border border-whatsapp/50 bg-whatsapp/10 px-3 text-[0.8rem] font-bold text-gift transition-colors hover:bg-whatsapp hover:text-whatsapp-ink sm:col-start-auto sm:justify-self-end"
               >
                 <WhatsAppIcon className="size-4" />

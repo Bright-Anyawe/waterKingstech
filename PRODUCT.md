@@ -20,7 +20,7 @@ A marketplace-style shop window for WaterKingsTech. It takes a visitor from sear
 
 ## Positioning
 
-A real shop at Circle Mall, Tip Toe Lane (Blue Gate, Gate 2 Exit), Accra. It sells both tested UK-used devices (3-month warranty) and factory-sealed brand-new devices, repairs phones and laptops on site, offers installment plans and pays referral commissions. It also bundles free gifts: a free laptop bag with a laptop, and a free case and screen protector with a phone.
+A real shop at Circle Mall, Tip Toe Lane (Blue Gate, Gate 2 Exit), Accra. It sells both tested UK-used devices (3-month warranty) and factory-sealed brand-new devices, repairs phones and laptops on site (including SSD / HDD and RAM upgrades), is open 24/7, offers installment plans on phones, MacBooks and iPads and pays referral commissions. It also bundles free gifts: a free laptop bag with a laptop, and a free case and screen protector with a phone.
 
 ## Operating Context
 
@@ -40,7 +40,7 @@ A real shop at Circle Mall, Tip Toe Lane (Blue Gate, Gate 2 Exit), Accra. It sel
 - Tap & Earn (client, 2026-11-09): one-tap sharing of any item with the sharer's name in the link; buyers arriving through it have the sharer named in their WhatsApp order. It pays the existing referral commission (GH₵ 50 – GH₵ 400).
 - Every item shows a warranty: 3 months on UK used; brand new shows "Warranty: ask us" until the client confirms a period.
 - The corporate quote, swap and offer forms have no backend; they compose a WhatsApp message or an email.
-- Undecided: repair turnaround times, real stock and prices, opening hours, installment terms, referral payout terms, swap terms, brand-new warranty period, exact map pin.
+- Undecided: repair turnaround times, real stock and prices, installment terms, referral payout terms, swap terms, brand-new warranty period, exact map pin.
 
 ## Brand Commitments
 
@@ -51,9 +51,10 @@ A real shop at Circle Mall, Tip Toe Lane (Blue Gate, Gate 2 Exit), Accra. It sel
 ## Evidence on Hand
 
 - Owner flyers (2026-09-23): phone/WhatsApp numbers, address, landmark, referral and installment commission tables.
+- Owner (2026-11-12): open 24/7. Installment covers every phone (UK used and brand new), MacBooks and iPads only; other laptops and accessories are paid in full. Repairs include SSD / HDD and RAM upgrades.
 - Logo file (2026-11-09), email address, 3-month UK-used warranty, promo headliners and the B2B/B2C scope.
 - Hero video and poster in `public/videos`.
-- **Absent, never fabricate:** real product list, prices and photos (the catalog is sample stock with Unsplash images), customer reviews, shop photos, opening hours, repair turnaround times, installment terms, referral payout terms, bulk discount rates, social accounts.
+- **Absent, never fabricate:** real product list, prices and photos (the catalog is sample stock with Unsplash images), customer reviews, shop photos, repair turnaround times, installment terms, referral payout terms, bulk discount rates, social accounts.
 
 ## Product Principles
 

@@ -1,6 +1,7 @@
 import { business } from "@/data/business";
 import { contact } from "@/data/contact";
 import { conditionLabel } from "@/data/offers";
+import { inSentence } from "@/lib/format";
 import type { Product, RepairService } from "@/types";
 
 /* -------------------------------------------------------------------------- */
@@ -67,7 +68,7 @@ export function productMessage(product: Product): string {
 }
 
 export function repairMessage(service: RepairService): string {
-  return `${greeting} I need help with ${service.name.toLowerCase()} for my device. How long would it take, and what would it cost?`;
+  return `${greeting} I need help with ${inSentence(service.name)} for my device. How long would it take, and what would it cost?`;
 }
 
 /**
